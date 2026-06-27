@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Stock - Alok Mobile</title>
+  <meta name="description" content="Browse available mobile phones, accessories, tablets, smartwatches, and audio stock at Alok Mobile, Mangawa, Rewa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stock.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <header class="stock-header">
+    <div class="stock-header-inner">
+      <a href="index.html" class="logo-area">
+        <div class="logo-icon-svg">
+          <svg viewBox="0 0 115 80" width="55" height="38" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+            <g font-family="'Outfit', sans-serif" font-weight="900" font-style="italic" font-size="70">
+              <text x="5" y="68" fill="#087f7a">A</text>
+              <text x="45" y="68" fill="#f97316">M</text>
+            </g>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand-alok">ALOK</span>
+          <span class="brand-sub">MOBILE</span>
+        </div>
+      </a>
+
+      <form class="stock-search" id="stockSearchForm">
+        <input type="search" id="stockSearchInput" placeholder="Search mobiles, accessories, watches..." autocomplete="off">
+        <button type="submit"><i data-lucide="search"></i> Search</button>
+      </form>
+
+      <a href="index.html#store-locator" class="stock-store-btn">
+        <i data-lucide="store"></i>
+        Visit Store
+      </a>
+    </div>
+  </header>
+
+  <main class="stock-page">
+    <section class="stock-hero">
+      <div>
+        <p class="stock-kicker">Available Stock</p>
+        <h1 id="stockTitle">Mobiles</h1>
+        <p>Browse online, compare quickly, then visit our store for live demo, setup, exchange, EMI, and pickup.</p>
+      </div>
+      <div class="stock-summary">
+        <span id="stockCount">0 items</span>
+        <small>Updated for in-store availability</small>
+      </div>
+    </section>
+
+    <nav class="stock-tabs" aria-label="Stock categories">
+      <a href="stock.html?category=mobiles" data-category="mobiles"><i data-lucide="smartphone"></i> Mobiles</a>
+      <a href="stock.html?category=accessories" data-category="accessories"><i data-lucide="headphones"></i> Accessories</a>
+      <a href="stock.html?category=tablets" data-category="tablets"><i data-lucide="tablet"></i> Tablets</a>
+      <a href="stock.html?category=smartwatches" data-category="smartwatches"><i data-lucide="watch"></i> Smartwatches</a>
+      <a href="stock.html?category=audio" data-category="audio"><i data-lucide="speaker"></i> Audio</a>
+      <a href="stock.html?category=offers" data-category="offers"><i data-lucide="badge-percent"></i> Offers</a>
+    </nav>
+
+    <div class="stock-layout">
+      <aside class="stock-filters" aria-label="Stock filters">
+        <div class="filter-header">
+          <h2>Filters</h2>
+          <button type="button" id="clearFilters">Clear</button>
+        </div>
+
+        <div class="filter-group">
+          <h3>Brand</h3>
+          <label><input type="checkbox" name="brand" value="Apple"> Apple</label>
+          <label><input type="checkbox" name="brand" value="Samsung"> Samsung</label>
+          <label><input type="checkbox" name="brand" value="OnePlus"> OnePlus</label>
+          <label><input type="checkbox" name="brand" value="boAt"> boAt</label>
+          <label><input type="checkbox" name="brand" value="Noise"> Noise</label>
+          <label><input type="checkbox" name="brand" value="Lenovo"> Lenovo</label>
+        </div>
+
+        <div class="filter-group">
+          <h3>Price</h3>
+          <label><input type="radio" name="price" value="all" checked> All prices</label>
+          <label><input type="radio" name="price" value="0-2000"> Under Rs. 2,000</label>
+          <label><input type="radio" name="price" value="2000-10000"> Rs. 2,000 - Rs. 10,000</label>
+          <label><input type="radio" name="price" value="10000-40000"> Rs. 10,000 - Rs. 40,000</label>
+          <label><input type="radio" name="price" value="40000-90000"> Rs. 40,000+</label>
+        </div>
+
+        <div class="filter-group">
+          <h3>Customer Rating</h3>
+          <label><input type="radio" name="rating" value="all" checked> Any rating</label>
+          <label><input type="radio" name="rating" value="4.5"> 4.5 stars & up</label>
+          <label><input type="radio" name="rating" value="4"> 4 stars & up</label>
+        </div>
+
+        <div class="filter-group">
+          <h3>Availability</h3>
+          <label><input type="checkbox" id="inStockOnly" checked> In stock only</label>
+          <label><input type="checkbox" id="offersOnly"> Offers only</label>
+        </div>
+      </aside>
+
+      <section class="stock-results">
+        <div class="results-toolbar">
+          <div>
+            <h2 id="resultsHeading">Results</h2>
+            <p id="resultsSubtext">Showing available products</p>
+          </div>
+          <label class="sort-control">
+            Sort by
+            <select id="sortSelect">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Avg. Customer Review</option>
+              <option value="discount">Biggest Discount</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="stock-products" id="stockProducts"></div>
+        <div class="empty-stock" id="emptyStock">
+          <i data-lucide="package-search"></i>
+          <h3>No matching stock found</h3>
+          <p>Try clearing filters or checking another category.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="stock.js"></script>
+</body>
+</html>

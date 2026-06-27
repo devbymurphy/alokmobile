@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - Alok Mobile</title>
+  <meta name="description" content="View product price, colors, specifications, and store availability at Alok Mobile.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="product.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <header class="product-header">
+    <div class="product-header-inner">
+      <a href="index.html" class="logo-area">
+        <div class="logo-icon-svg">
+          <svg viewBox="0 0 115 80" width="55" height="38" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+            <g font-family="'Outfit', sans-serif" font-weight="900" font-style="italic" font-size="70">
+              <text x="5" y="68" fill="#087f7a">A</text>
+              <text x="45" y="68" fill="#f97316">M</text>
+            </g>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand-alok">ALOK</span>
+          <span class="brand-sub">MOBILE</span>
+        </div>
+      </a>
+      <nav class="product-header-links">
+        <a href="stock.html?category=mobiles"><i data-lucide="smartphone"></i> Stock</a>
+        <a href="index.html#store-locator"><i data-lucide="store"></i> Visit Store</a>
+        <a href="tel:+919840912345"><i data-lucide="phone"></i> Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="product-page">
+    <a href="stock.html?category=mobiles" class="back-link" id="backToCategory"><i data-lucide="arrow-left"></i> Back to stock</a>
+
+    <section class="product-detail" id="productDetail">
+      <div class="product-gallery">
+        <div class="product-image-stage">
+          <img id="productImage" src="" alt="">
+        </div>
+        <div class="product-badges">
+          <span><i data-lucide="shield-check"></i> Genuine Product</span>
+          <span><i data-lucide="store"></i> Store Pickup</span>
+          <span><i data-lucide="wrench"></i> Setup Support</span>
+        </div>
+      </div>
+
+      <div class="product-main-info">
+        <p class="product-brand" id="productBrand"></p>
+        <h1 id="productName">Product</h1>
+        <div class="product-rating-row">
+          <span id="productRating" class="product-rating-pill"></span>
+          <span id="productReviews"></span>
+        </div>
+
+        <div class="product-price-panel">
+          <div class="detail-price" id="productPrice"></div>
+          <div class="detail-mrp" id="productMrp"></div>
+          <div class="detail-availability" id="productAvailability"></div>
+        </div>
+
+        <div class="detail-section">
+          <h2>Available Colors</h2>
+          <div class="color-options" id="productColors"></div>
+        </div>
+
+        <div class="detail-section">
+          <h2>Specifications</h2>
+          <div class="spec-grid" id="productSpecs"></div>
+        </div>
+
+        <div class="detail-actions">
+          <a href="tel:+919840912345" class="detail-primary"><i data-lucide="phone"></i> Call to Confirm</a>
+          <a href="index.html#store-locator" class="detail-secondary"><i data-lucide="map-pin"></i> Visit Our Store</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section product-extra">
+      <h2>Store Benefits</h2>
+      <div class="benefit-grid">
+        <div><i data-lucide="repeat-2"></i><strong>Exchange Help</strong><span>Bring old phone for best upgrade value.</span></div>
+        <div><i data-lucide="badge-percent"></i><strong>EMI & Offers</strong><span>Ask store team for active finance options.</span></div>
+        <div><i data-lucide="download"></i><strong>Data Transfer</strong><span>We help move contacts, photos, and apps.</span></div>
+        <div><i data-lucide="settings"></i><strong>Full Setup</strong><span>Device setup and basic guidance included.</span></div>
+      </div>
+    </section>
+
+    <section class="not-found-product" id="notFoundProduct">
+      <i data-lucide="package-x"></i>
+      <h1>Product not found</h1>
+      <p>This product may have moved. Please browse the latest stock.</p>
+      <a href="stock.html?category=mobiles" class="detail-primary">Browse Stock</a>
+    </section>
+  </main>
+
+  <script src="product.js"></script>
+</body>
+</html>
