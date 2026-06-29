@@ -522,3 +522,1260 @@
     min-height: 46px;
   }
 }
+
+/* Stock Page Visual Refresh */
+.stock-header {
+  box-shadow: 0 1px 0 rgba(18, 52, 59, 0.04);
+}
+
+.stock-header-inner {
+  padding: 16px 24px;
+}
+
+.stock-page {
+  padding: 28px 24px 64px;
+}
+
+.stock-search {
+  border-width: 1px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(18, 52, 59, 0.06);
+}
+
+.stock-search input {
+  background: transparent;
+}
+
+.stock-search button {
+  margin: 4px;
+  border-radius: 999px;
+  background: var(--primary-dark);
+}
+
+.stock-store-btn {
+  background: var(--accent-color);
+}
+
+.stock-hero {
+  padding: 32px;
+  border-radius: var(--border-radius-lg);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(233, 247, 244, 0.9)),
+    #ffffff;
+  box-shadow: 0 14px 34px rgba(18, 52, 59, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.stock-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -70px -110px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(242, 107, 33, 0.1);
+  pointer-events: none;
+}
+
+.stock-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.stock-hero h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  letter-spacing: 0;
+}
+
+.stock-summary {
+  box-shadow: 0 10px 24px rgba(18, 52, 59, 0.06);
+}
+
+.stock-tabs {
+  padding: 20px 0;
+}
+
+.stock-tabs a {
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(18, 52, 59, 0.05);
+}
+
+.stock-layout {
+  gap: 24px;
+}
+
+.stock-filters,
+.results-toolbar,
+.stock-card {
+  box-shadow: 0 14px 34px rgba(18, 52, 59, 0.08);
+}
+
+.stock-filters {
+  top: 96px;
+}
+
+.filter-group label {
+  min-height: 30px;
+}
+
+.filter-group label:hover {
+  color: var(--primary-dark);
+}
+
+.filter-group input {
+  width: 15px;
+  height: 15px;
+}
+
+.results-toolbar {
+  padding: 18px 20px;
+}
+
+.sort-control select {
+  border-radius: 999px;
+  background: #f8fbfa;
+}
+
+.stock-products {
+  gap: 14px;
+}
+
+.stock-card {
+  grid-template-columns: 200px minmax(0, 1fr) 220px;
+  padding: 20px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.stock-card:hover {
+  transform: translateY(-3px);
+}
+
+.stock-img-box {
+  min-height: 180px;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(242, 107, 33, 0.09), transparent 30%),
+    linear-gradient(145deg, #ffffff 0%, #edf8f5 100%);
+  border: 1px solid rgba(6, 118, 111, 0.12);
+}
+
+.stock-img-box img {
+  max-height: 150px;
+  filter: drop-shadow(0 15px 18px rgba(18, 52, 59, 0.12));
+}
+
+.stock-info h3 {
+  font-family: var(--font-family-title);
+  font-size: 1.22rem;
+}
+
+.rating-pill,
+.stock-specs span {
+  border: 1px solid rgba(219, 232, 229, 0.8);
+}
+
+.stock-buy {
+  justify-content: center;
+}
+
+.stock-price {
+  font-size: 1.75rem;
+}
+
+.stock-action-primary,
+.stock-action-secondary {
+  border-radius: 999px;
+  transition: var(--transition);
+}
+
+.stock-action-secondary:hover {
+  background: var(--primary-dark);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.empty-stock {
+  box-shadow: 0 14px 34px rgba(18, 52, 59, 0.06);
+}
+
+@media (max-width: 980px) {
+  .stock-header-inner {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .stock-page {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .stock-card {
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .stock-hero,
+  .results-toolbar,
+  .stock-card,
+  .stock-filters {
+    padding: 18px;
+  }
+
+  .stock-card {
+    grid-template-columns: 1fr;
+  }
+
+  .stock-search {
+    border-radius: var(--border-radius-lg);
+  }
+
+  .stock-search button {
+    min-height: 42px;
+  }
+
+  .stock-tabs a {
+    padding: 9px 12px;
+  }
+}
+
+/* Mobile-only stock polish. Desktop remains unchanged. */
+@media (max-width: 768px) {
+  .stock-header-inner {
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .stock-store-btn {
+    min-height: 38px;
+    padding: 0 13px;
+    font-size: 0.78rem;
+  }
+
+  .stock-search {
+    min-height: 42px;
+  }
+
+  .stock-search input {
+    min-height: 42px;
+    padding: 0 12px;
+    font-size: 0.82rem;
+  }
+
+  .stock-search button {
+    min-height: 36px;
+    padding: 0 14px;
+    font-size: 0.78rem;
+  }
+
+  .stock-page {
+    padding-top: 16px;
+    padding-bottom: 40px;
+  }
+
+  .stock-hero {
+    gap: 12px;
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .stock-kicker {
+    font-size: 0.68rem;
+    margin-bottom: 4px;
+  }
+
+  .stock-hero h1 {
+    font-size: clamp(1.75rem, 8.5vw, 2.35rem);
+    margin-bottom: 6px;
+  }
+
+  .stock-hero p {
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .stock-summary {
+    padding: 10px 12px;
+  }
+
+  .stock-summary span {
+    font-size: 1.08rem;
+  }
+
+  .stock-summary small {
+    font-size: 0.7rem;
+  }
+
+  .stock-tabs {
+    gap: 7px;
+    padding: 12px 0;
+  }
+
+  .stock-tabs a {
+    gap: 5px;
+    padding: 8px 10px;
+    font-size: 0.76rem;
+  }
+
+  .stock-tabs .lucide {
+    width: 14px;
+    height: 14px;
+  }
+
+  .stock-layout {
+    gap: 14px;
+  }
+
+  .stock-filters {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .filter-header {
+    padding-bottom: 10px;
+  }
+
+  .filter-header h2 {
+    font-size: 1rem;
+  }
+
+  .filter-header button {
+    font-size: 0.78rem;
+  }
+
+  .filter-group {
+    padding: 12px 0;
+  }
+
+  .filter-group h3 {
+    font-size: 0.82rem;
+    margin-bottom: 7px;
+  }
+
+  .filter-group label {
+    min-height: 26px;
+    gap: 7px;
+    font-size: 0.78rem;
+  }
+
+  .results-toolbar {
+    gap: 10px;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+
+  .results-toolbar h2 {
+    font-size: 1rem;
+  }
+
+  .results-toolbar p,
+  .sort-control {
+    font-size: 0.76rem;
+  }
+
+  .sort-control select {
+    min-height: 36px;
+    font-size: 0.78rem;
+  }
+
+  .stock-products {
+    gap: 10px;
+  }
+
+  .stock-card {
+    gap: 12px;
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .stock-img-box {
+    min-height: 138px;
+    padding: 14px;
+  }
+
+  .stock-img-box img {
+    max-height: 116px;
+  }
+
+  .stock-info h3 {
+    font-size: 0.98rem;
+    margin-bottom: 7px;
+  }
+
+  .stock-rating {
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.74rem;
+    margin-bottom: 8px;
+  }
+
+  .rating-pill {
+    padding: 2px 7px;
+  }
+
+  .stock-specs {
+    gap: 6px;
+    margin: 8px 0 9px;
+  }
+
+  .stock-specs span {
+    padding: 4px 7px;
+    font-size: 0.68rem;
+  }
+
+  .stock-line {
+    font-size: 0.76rem;
+    margin-top: 4px;
+  }
+
+  .stock-buy {
+    gap: 6px;
+    padding-top: 12px;
+  }
+
+  .stock-price {
+    font-size: 1.38rem;
+  }
+
+  .stock-mrp,
+  .stock-availability {
+    font-size: 0.75rem;
+  }
+
+  .stock-actions {
+    gap: 7px;
+  }
+
+  .stock-action-primary,
+  .stock-action-secondary {
+    min-height: 38px;
+    font-size: 0.76rem;
+  }
+
+  .empty-stock {
+    padding: 34px 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .stock-page {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .stock-store-btn {
+    width: 100%;
+  }
+}
+
+/* Color and motion refresh: visual-only, no shape or size changes. */
+body {
+  background:
+    linear-gradient(180deg, #f3faf7 0%, #fffaf3 48%, #f7fbfa 100%);
+}
+
+.stock-header {
+  background-color: rgba(255, 255, 255, 0.88);
+  border-color: rgba(18, 52, 59, 0.1);
+  box-shadow: 0 10px 32px rgba(18, 52, 59, 0.06);
+}
+
+.stock-search {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(6, 118, 111, 0.14);
+}
+
+.stock-search button {
+  background-image: linear-gradient(135deg, #12343b 0%, #06766f 100%);
+}
+
+.stock-store-btn,
+.stock-action-primary {
+  background-image: linear-gradient(135deg, #f26b21 0%, #df5e19 100%);
+  box-shadow: 0 12px 24px rgba(242, 107, 33, 0.22);
+}
+
+.stock-hero,
+.stock-filters,
+.results-toolbar,
+.stock-card,
+.empty-stock {
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.97) 0%, rgba(236, 249, 246, 0.9) 100%);
+  border-color: rgba(6, 118, 111, 0.16);
+  box-shadow: 0 16px 38px rgba(18, 52, 59, 0.09);
+}
+
+.stock-card:nth-child(even) {
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 247, 237, 0.88) 100%);
+}
+
+.stock-img-box,
+.stock-summary,
+.stock-specs span,
+.rating-pill,
+.sort-control select {
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 251, 250, 0.96) 100%);
+  border-color: rgba(6, 118, 111, 0.14);
+}
+
+.stock-hero h1,
+.filter-header h2,
+.results-toolbar h2,
+.stock-info h3,
+.stock-price,
+.stock-summary span {
+  color: #12343b;
+}
+
+.stock-kicker,
+.stock-discount,
+.filter-header button {
+  color: #f26b21;
+}
+
+.stock-availability,
+.stock-tabs a.active {
+  color: #06766f;
+}
+
+.stock-hero p,
+.results-toolbar p,
+.filter-group label,
+.stock-line,
+.stock-mrp,
+.stock-summary small,
+.sort-control {
+  color: #4f6669;
+}
+
+.stock-tabs a {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(6, 118, 111, 0.14);
+  color: #12343b;
+}
+
+.stock-tabs a.active,
+.stock-tabs a:hover {
+  background-image: linear-gradient(135deg, #12343b 0%, #06766f 100%);
+  color: #ffffff;
+  border-color: rgba(6, 118, 111, 0.28);
+}
+
+.stock-action-secondary {
+  background-image: linear-gradient(135deg, #e9f7f4 0%, #f8fbfa 100%);
+  color: #06766f;
+  box-shadow: 0 12px 24px rgba(18, 52, 59, 0.08);
+}
+
+.stock-hero,
+.stock-filters,
+.results-toolbar,
+.stock-card,
+.stock-action-primary,
+.stock-action-secondary,
+.stock-tabs a,
+.stock-store-btn {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background-color 0.28s ease,
+    filter 0.28s ease,
+    color 0.28s ease;
+}
+
+.stock-card:hover,
+.stock-filters:hover,
+.results-toolbar:hover {
+  border-color: rgba(242, 107, 33, 0.3);
+  box-shadow: 0 20px 46px rgba(18, 52, 59, 0.13);
+  filter: saturate(1.04);
+}
+
+.stock-card:hover .stock-img-box img {
+  filter: drop-shadow(0 15px 18px rgba(18, 52, 59, 0.16)) saturate(1.06);
+}
+
+.stock-page {
+  animation: pageTintIn 0.62s ease both;
+}
+
+.stock-hero,
+.stock-filters,
+.results-toolbar,
+.stock-card {
+  animation: pageBlockIn 0.68s ease both;
+}
+
+.stock-filters {
+  animation-delay: 0.08s;
+}
+
+.results-toolbar,
+.stock-card:nth-child(odd) {
+  animation-delay: 0.12s;
+}
+
+.stock-card:nth-child(even) {
+  animation-delay: 0.18s;
+}
+
+@keyframes pageTintIn {
+  from {
+    opacity: 0.92;
+    filter: saturate(0.88);
+  }
+
+  to {
+    opacity: 1;
+    filter: saturate(1);
+  }
+}
+
+@keyframes pageBlockIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: saturate(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: saturate(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stock-page,
+  .stock-hero,
+  .stock-filters,
+  .results-toolbar,
+  .stock-card {
+    animation: none;
+  }
+}
+
+/* Final stock mobile layout pass. Desktop rules are intentionally untouched. */
+@media (max-width: 768px) {
+  .stock-header {
+    position: static;
+  }
+
+  .stock-header-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px 8px;
+    padding: 10px 12px;
+  }
+
+  .stock-header .logo-area {
+    min-width: 0;
+  }
+
+  .stock-header .logo-icon-svg {
+    width: 42px;
+    height: 32px;
+  }
+
+  .stock-header .logo-icon-svg svg {
+    width: 42px;
+    height: 30px;
+  }
+
+  .stock-header .brand-alok {
+    font-size: 1.24rem;
+  }
+
+  .stock-header .brand-sub {
+    font-size: 0.46rem;
+    letter-spacing: 2px;
+  }
+
+  .stock-store-btn {
+    width: auto;
+    min-height: 38px;
+    padding: 0 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .stock-search {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 42px;
+    border-radius: 12px;
+  }
+
+  .stock-search input {
+    min-height: 42px;
+  }
+
+  .stock-search button {
+    width: auto;
+    min-height: 34px;
+    margin: 4px;
+    padding: 0 12px;
+  }
+
+  .stock-page {
+    padding: 12px 12px 34px;
+  }
+
+  .stock-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .stock-kicker {
+    font-size: 0.66rem;
+    margin-bottom: 3px;
+  }
+
+  .stock-hero h1 {
+    font-size: clamp(1.62rem, 9vw, 2.14rem);
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+
+  .stock-hero p {
+    max-width: 34ch;
+    font-size: 0.8rem;
+    line-height: 1.42;
+  }
+
+  .stock-summary {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-align: left;
+  }
+
+  .stock-summary span {
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+
+  .stock-summary small {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.68rem;
+  }
+
+  .stock-tabs {
+    gap: 7px;
+    margin: 0 -12px;
+    padding: 10px 12px;
+    scroll-padding-left: 12px;
+  }
+
+  .stock-tabs a {
+    min-height: 34px;
+    gap: 5px;
+    padding: 7px 10px;
+    font-size: 0.74rem;
+    box-shadow: 0 6px 16px rgba(18, 52, 59, 0.05);
+  }
+
+  .stock-tabs .lucide {
+    width: 14px;
+    height: 14px;
+  }
+
+  .stock-layout {
+    gap: 12px;
+  }
+
+  .stock-filters {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .filter-header {
+    padding-bottom: 9px;
+  }
+
+  .filter-header h2 {
+    font-size: 0.98rem;
+  }
+
+  .filter-header button {
+    font-size: 0.76rem;
+  }
+
+  .filter-group {
+    padding: 10px 0;
+  }
+
+  .filter-group h3 {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .filter-group label {
+    min-height: 30px;
+    padding: 3px 0;
+    font-size: 0.77rem;
+    line-height: 1.25;
+  }
+
+  .filter-group input {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+  }
+
+  .results-toolbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+
+  .results-toolbar h2 {
+    font-size: 0.98rem;
+    line-height: 1.2;
+  }
+
+  .results-toolbar p {
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+
+  .sort-control {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    font-size: 0.74rem;
+  }
+
+  .sort-control select {
+    width: 100%;
+    min-height: 36px;
+    padding: 0 10px;
+    font-size: 0.76rem;
+  }
+
+  .stock-products {
+    gap: 10px;
+  }
+
+  .stock-card {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-areas:
+      "image info"
+      "buy buy";
+    gap: 10px;
+    padding: 11px;
+    border-radius: 12px;
+    align-items: start;
+  }
+
+  .stock-img-box {
+    grid-area: image;
+    min-height: 112px;
+    height: 112px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .stock-img-box img {
+    max-height: 88px;
+    max-width: 100%;
+  }
+
+  .stock-info {
+    grid-area: info;
+    min-width: 0;
+  }
+
+  .stock-info h3 {
+    display: -webkit-box;
+    margin-bottom: 6px;
+    overflow: hidden;
+    font-size: 0.92rem;
+    line-height: 1.22;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .stock-rating {
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 7px;
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .rating-pill {
+    padding: 2px 6px;
+  }
+
+  .rating-pill .lucide {
+    width: 12px;
+    height: 12px;
+  }
+
+  .stock-specs {
+    gap: 5px;
+    margin: 7px 0;
+  }
+
+  .stock-specs span {
+    padding: 3px 6px;
+    font-size: 0.64rem;
+    line-height: 1.15;
+  }
+
+  .stock-line {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    margin-top: 3px;
+  }
+
+  .stock-line:last-child {
+    display: none;
+  }
+
+  .stock-buy {
+    grid-area: buy;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 10px 0 0;
+    border-top: 1px solid rgba(6, 118, 111, 0.12);
+    border-left: 0;
+  }
+
+  .stock-price {
+    font-size: 1.22rem;
+    line-height: 1.12;
+  }
+
+  .stock-mrp {
+    font-size: 0.72rem;
+    line-height: 1.3;
+  }
+
+  .stock-availability {
+    gap: 5px;
+    font-size: 0.72rem;
+    line-height: 1.2;
+  }
+
+  .stock-availability .lucide {
+    width: 14px;
+    height: 14px;
+  }
+
+  .stock-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-top: 2px;
+  }
+
+  .stock-action-primary,
+  .stock-action-secondary {
+    min-height: 38px;
+    padding: 0 8px;
+    font-size: 0.72rem;
+    line-height: 1.15;
+  }
+
+  .stock-action-primary .lucide,
+  .stock-action-secondary .lucide {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .stock-card {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 9px;
+    padding: 10px;
+  }
+
+  .stock-img-box {
+    min-height: 104px;
+    height: 104px;
+    padding: 8px;
+  }
+
+  .stock-img-box img {
+    max-height: 82px;
+  }
+
+  .stock-info h3 {
+    font-size: 0.86rem;
+  }
+
+  .stock-specs span:nth-child(n + 3) {
+    display: none;
+  }
+
+  .stock-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Premium Stock Page Visual System
+   Page-specific visual overrides only; filters, sorting, card links, and JS
+   behavior remain unchanged.
+   ========================================================================== */
+
+/* Stock page surface: neutral background with clean ecommerce panels. */
+body {
+  background: #F8FAFC;
+  color: #111827;
+}
+
+/* Header: premium primary dark with white logo and navigation text. */
+.stock-header {
+  background: #0F172A;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.stock-header .brand-alok,
+.stock-header .brand-sub {
+  color: #FFFFFF;
+}
+
+.stock-header .brand-sub::before,
+.stock-header .brand-sub::after {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.stock-header .logo-icon-svg text:first-child {
+  fill: #FFFFFF;
+}
+
+.stock-header .logo-icon-svg text:last-child {
+  fill: #FF6B00;
+}
+
+/* Search: white pill, neutral border, orange focus, dark button. */
+.stock-search {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.stock-search:focus-within {
+  border-color: #FF6B00;
+  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.14);
+}
+
+.stock-search input {
+  color: #111827;
+  background: #FFFFFF;
+}
+
+.stock-search button {
+  background: #0F172A;
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.stock-search button:hover {
+  background: #1E293B;
+  transform: scale(1.02);
+}
+
+/* Store and product actions: orange primary with refined hover. */
+.stock-store-btn,
+.stock-action-primary {
+  background: #FF6B00;
+  color: #FFFFFF;
+  border-color: #FF6B00;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(255, 107, 0, 0.18);
+  transition: all 0.25s ease;
+}
+
+.stock-store-btn:hover,
+.stock-action-primary:hover {
+  background: #EA580C;
+  color: #FFFFFF;
+  transform: scale(1.02);
+}
+
+.stock-action-secondary {
+  background: #FFFFFF;
+  color: #FF6B00;
+  border: 2px solid #FF6B00;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: none;
+  transition: all 0.25s ease;
+}
+
+.stock-action-secondary:hover {
+  background: #FF6B00;
+  color: #FFFFFF;
+  transform: scale(1.02);
+}
+
+/* Hero, filters, toolbar, and empty state: white cards with subtle shadows. */
+.stock-hero,
+.stock-filters,
+.results-toolbar,
+.empty-stock {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.stock-hero::after {
+  background: rgba(255, 107, 0, 0.08);
+}
+
+/* Stock cards: consistent white cards, no mixed border colors. */
+.stock-card,
+.stock-card:nth-child(even) {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  transition: all 0.3s ease;
+}
+
+.stock-card:hover {
+  transform: translateY(-6px);
+  border-color: #FF6B00;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Product imagery and metadata chips: neutral gray panels, no extra colors. */
+.stock-img-box,
+.stock-summary,
+.stock-specs span,
+.rating-pill,
+.sort-control select {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  box-shadow: none;
+}
+
+/* Stock tabs: white pills with primary active state and orange hover cue. */
+.stock-tabs a {
+  background: #FFFFFF;
+  color: #111827;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  transition: all 0.25s ease;
+}
+
+.stock-tabs a.active,
+.stock-tabs a:hover {
+  background: #0F172A;
+  color: #FFFFFF;
+  border-color: #FF6B00;
+}
+
+/* Text hierarchy: dark headings, slate support copy, orange prices/offers. */
+.stock-hero h1,
+.filter-header h2,
+.results-toolbar h2,
+.stock-info h3,
+.stock-price,
+.stock-summary span,
+.empty-stock h3 {
+  color: #111827;
+  font-weight: 700;
+}
+
+.stock-hero p,
+.results-toolbar p,
+.filter-group label,
+.stock-line,
+.stock-mrp,
+.stock-summary small,
+.sort-control,
+.empty-stock p {
+  color: #64748B;
+  font-weight: 400;
+}
+
+.stock-kicker,
+.stock-discount,
+.filter-header button,
+.stock-price {
+  color: #FF6B00;
+}
+
+.filter-header button:hover {
+  color: #EA580C;
+}
+
+/* Icons: orange by default, with green/red reserved for availability states. */
+.stock-header .lucide,
+.stock-tabs .lucide,
+.stock-action-primary .lucide,
+.stock-action-secondary .lucide,
+.filter-header button,
+.empty-stock .lucide {
+  color: currentColor;
+}
+
+.stock-img-box .lucide,
+.stock-store-btn .lucide {
+  color: #FFFFFF;
+}
+
+.stock-availability,
+.stock-availability .lucide {
+  color: #22C55E;
+}
+
+.stock-card.out .stock-availability,
+.stock-card.out .stock-availability .lucide {
+  color: #EF4444;
+}
+
+.rating-pill {
+  color: #F59E0B;
+}
+
+.rating-pill .lucide {
+  color: #F59E0B;
+  fill: #F59E0B;
+}
+
+@media (max-width: 768px) {
+  /* Mobile keeps its current responsive arrangement while inheriting the same
+     premium white cards, neutral borders, and orange action color. */
+  .stock-search {
+    border-radius: 12px;
+  }
+
+  .stock-hero,
+  .stock-filters,
+  .results-toolbar {
+    border-radius: 16px;
+  }
+
+  .stock-card {
+    background: #FFFFFF;
+    border-color: #E2E8F0;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  }
+}

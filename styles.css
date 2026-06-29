@@ -2213,3 +2213,2652 @@ img {
     text-align: center;
   }
 }
+
+/* ==========================================================================
+   Visual Refresh Layer
+   ========================================================================== */
+:root {
+  --primary-color: #06766f;
+  --primary-dark: #12343b;
+  --primary-light: #e9f7f4;
+  --accent-color: #f26b21;
+  --accent-danger: #dc2626;
+  --bg-main: #ffffff;
+  --bg-alt: #f4f8f7;
+  --text-dark: #182f35;
+  --text-muted: #617477;
+  --border-color: #dbe8e5;
+  --box-shadow: 0 10px 30px rgba(18, 52, 59, 0.08);
+  --box-shadow-hover: 0 18px 42px rgba(18, 52, 59, 0.14);
+}
+
+body {
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f4f8f7 440px, #f7faf9 100%);
+}
+
+.top-bar-container,
+.header-container,
+.nav-container,
+.hero-container,
+.grid-container,
+.feedback-container,
+.footer-bottom-container {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+.footer-top-grid {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+.main-header,
+.nav-bar,
+.product-header,
+.stock-header {
+  box-shadow: 0 1px 0 rgba(18, 52, 59, 0.04);
+}
+
+.logo-area {
+  min-width: max-content;
+}
+
+.logo-icon-svg {
+  width: 54px;
+  height: 42px;
+  border-radius: 12px;
+  background: #eef8f6;
+  box-shadow: inset 0 0 0 1px rgba(6, 118, 111, 0.12);
+}
+
+.search-form,
+.stock-search {
+  border-width: 1px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(18, 52, 59, 0.06);
+}
+
+.search-form input {
+  background: transparent;
+}
+
+.search-btn,
+.stock-search button {
+  border-radius: 999px;
+  margin: 4px;
+  padding: 0 24px;
+  background: var(--primary-dark);
+}
+
+.search-btn:hover,
+.stock-search button:hover {
+  background: var(--primary-color);
+}
+
+.action-btn,
+.product-header-links a,
+.back-link,
+.stock-tabs a {
+  border-radius: 999px;
+}
+
+.contact-action,
+.instagram-action {
+  border: 1px solid transparent;
+}
+
+.contact-action:hover,
+.instagram-action:hover {
+  border-color: var(--border-color);
+}
+
+.store-action,
+.stock-store-btn,
+.footer-map-btn,
+.detail-primary,
+.stock-action-primary {
+  background: var(--accent-color);
+  box-shadow: 0 10px 22px rgba(242, 107, 33, 0.22);
+}
+
+.store-action:hover,
+.stock-store-btn:hover,
+.footer-map-btn:hover,
+.detail-primary:hover,
+.stock-action-primary:hover {
+  background: #dc5f19;
+  transform: translateY(-1px);
+}
+
+.category-btn {
+  border-radius: 999px;
+  background: var(--primary-dark);
+}
+
+.nav-container {
+  min-height: 54px;
+}
+
+.nav-links {
+  gap: 18px;
+}
+
+.nav-link {
+  padding: 8px 2px;
+}
+
+.hero-section {
+  min-height: 560px;
+  padding: 82px 0 74px;
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0.24) 58%, rgba(18, 52, 59, 0.32) 100%),
+    url('assets/hero_showroom.png');
+  background-position: center right;
+}
+
+.hero-container {
+  grid-template-columns: minmax(0, 1fr) 360px;
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.hero-title {
+  max-width: 660px;
+  font-size: clamp(2.35rem, 4.4vw, 4.65rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.hero-subtitle {
+  max-width: 560px;
+  font-size: 1.18rem;
+  color: #415a60;
+}
+
+.hero-features {
+  max-width: 660px;
+  margin: 18px 0 22px;
+  gap: 10px;
+}
+
+.hero-feature-item {
+  min-height: 116px;
+  padding: 14px;
+  border: 1px solid rgba(6, 118, 111, 0.12);
+  border-radius: var(--border-radius-md);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+.hero-feature-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.hero-feature-item:last-child .hero-feature-icon,
+.hero-feature-item:last-child .hero-feature-text span,
+.hero-feature-item:last-child .hero-feature-text .feat-bold {
+  color: var(--primary-dark) !important;
+  filter: none;
+  text-shadow: none;
+}
+
+.hero-buttons {
+  flex-wrap: wrap;
+}
+
+.btn {
+  min-width: 220px;
+  border-radius: 999px;
+  padding: 14px 24px;
+}
+
+.btn-primary {
+  background: var(--primary-dark);
+  box-shadow: 0 12px 28px rgba(18, 52, 59, 0.18);
+}
+
+.btn-primary:hover {
+  background: var(--primary-color);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.78);
+  border-width: 1px;
+}
+
+.hero-media-wrapper {
+  align-items: center;
+}
+
+.why-shop-widget {
+  width: 340px;
+  min-height: 390px;
+  border-radius: var(--border-radius-lg);
+  background: rgba(18, 52, 59, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 60px rgba(18, 52, 59, 0.28);
+  backdrop-filter: blur(12px);
+}
+
+.why-shop-list li .lucide {
+  color: #9ee6d9;
+}
+
+.features-bar {
+  margin-top: -34px;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.features-bar-container {
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 18px 42px rgba(18, 52, 59, 0.12);
+}
+
+.bar-feature-item {
+  min-width: 0;
+}
+
+.main-content-grid {
+  padding-top: 54px;
+}
+
+.card-section,
+.feedback-card,
+.product-gallery,
+.product-main-info,
+.product-extra,
+.not-found-product,
+.stock-hero,
+.stock-filters,
+.results-toolbar,
+.stock-card {
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow);
+}
+
+.card-section,
+.feedback-card {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.story-layout,
+.visit-layout {
+  align-items: stretch;
+}
+
+.story-content,
+.visit-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.story-image-box,
+.visit-image-box {
+  min-height: 280px;
+  height: 100%;
+  border-radius: var(--border-radius-md);
+}
+
+.product-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.product-card {
+  border: 1px solid var(--border-color);
+  border-top-width: 1px;
+  border-radius: var(--border-radius-lg);
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(18, 52, 59, 0.07);
+}
+
+.product-card::before {
+  content: "Top pick";
+  align-self: flex-start;
+  margin: 14px 14px 0;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #fff7ed;
+  color: #b45309;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.product-img-wrapper {
+  height: 180px;
+  margin-bottom: 0;
+}
+
+.btn-product-check,
+.btn-directions,
+.btn-subscribe,
+.btn-instagram,
+.btn-story-action,
+.btn-map-action {
+  border-radius: 999px;
+}
+
+.feedback-container {
+  align-items: stretch;
+}
+
+.reviews-card,
+.newsletter-card,
+.instagram-card {
+  background: #ffffff;
+}
+
+.reviews-card {
+  border-color: #f3d8dd;
+}
+
+.newsletter-card {
+  border-color: #d7ece8;
+}
+
+.instagram-card {
+  border-color: #e5dff4;
+}
+
+.review-item,
+.google-rating-summary,
+.spec-item,
+.benefit-grid div,
+.stock-specs span {
+  border: 1px solid rgba(219, 232, 229, 0.8);
+}
+
+.insta-grid-item img {
+  background: #f7faf9;
+}
+
+.site-footer {
+  background: #101b22;
+  border-top: 0;
+}
+
+.mini-map-card {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+  }
+
+  .search-wrapper {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-media-wrapper {
+    justify-content: flex-start;
+  }
+
+  .why-shop-widget {
+    width: min(100%, 640px);
+    min-height: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    min-height: auto;
+    padding: 58px 0 56px;
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.9) 56%, rgba(18, 52, 59, 0.5) 100%),
+      url('assets/hero_showroom.png');
+    background-position: center;
+  }
+
+  .hero-features,
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .features-bar {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar-container,
+  .header-container,
+  .nav-container,
+  .hero-container,
+  .grid-container,
+  .feedback-container,
+  .footer-top-grid,
+  .footer-bottom-container {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .action-btn {
+    flex: 1;
+    justify-content: center;
+    min-height: 42px;
+    padding: 8px 10px;
+  }
+
+  .action-btn span {
+    font-size: 0.78rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 13vw, 3.4rem);
+  }
+
+  .hero-feature-item {
+    min-height: 106px;
+  }
+
+  .features-bar-container,
+  .card-section,
+  .feedback-card {
+    padding: 18px;
+  }
+
+  .main-content-grid {
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-features,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-btn {
+    padding: 0 16px;
+  }
+
+  .payment-methods {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Mobile-only polish: keep desktop layout unchanged. */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .main-header {
+    padding: 10px 0;
+  }
+
+  .logo-icon-svg {
+    width: 46px;
+    height: 36px;
+  }
+
+  .logo-icon-svg svg {
+    width: 46px;
+    height: 32px;
+  }
+
+  .brand-alok {
+    font-size: 1.42rem;
+  }
+
+  .brand-sub {
+    font-size: 0.52rem;
+    letter-spacing: 2.6px;
+  }
+
+  .header-container {
+    gap: 10px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .action-btn {
+    min-height: 38px;
+    gap: 5px;
+    padding: 7px 8px;
+    font-size: 0.74rem;
+  }
+
+  .action-btn .lucide,
+  .action-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .search-wrapper {
+    margin-top: 2px;
+  }
+
+  .search-form {
+    min-height: 42px;
+  }
+
+  .search-form input {
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
+
+  .search-btn {
+    padding: 0 14px;
+    font-size: 0.78rem;
+  }
+
+  .nav-container {
+    min-height: 44px;
+  }
+
+  .nav-links {
+    gap: 14px;
+    padding: 8px 0;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 5px 0;
+  }
+
+  .hero-section {
+    padding: 36px 0 34px;
+  }
+
+  .hero-content {
+    gap: 12px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 9.8vw, 2.55rem);
+    line-height: 1.04;
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .hero-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 8px 0 12px;
+  }
+
+  .hero-feature-item {
+    min-height: auto;
+    gap: 7px;
+    padding: 10px;
+  }
+
+  .hero-feature-icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .hero-feature-text span {
+    font-size: 0.74rem;
+    line-height: 1.22;
+  }
+
+  .hero-feature-text .feat-bold {
+    font-size: 0.8rem;
+  }
+
+  .hero-buttons {
+    gap: 9px;
+    margin-top: 0;
+  }
+
+  .btn {
+    min-width: 0;
+    min-height: 50px;
+    padding: 10px 14px;
+  }
+
+  .btn span {
+    font-size: 0.92rem;
+  }
+
+  .btn small {
+    font-size: 0.68rem;
+  }
+
+  .why-shop-widget {
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .why-shop-widget h3 {
+    font-size: 1.02rem;
+    margin-bottom: 10px;
+    padding-bottom: 9px;
+  }
+
+  .why-shop-list {
+    gap: 9px;
+  }
+
+  .why-shop-list li {
+    font-size: 0.78rem;
+    gap: 8px;
+  }
+
+  .why-shop-list li .lucide {
+    width: 16px;
+    height: 16px;
+  }
+
+  .google-rating-box {
+    margin-top: 13px;
+    padding: 10px;
+  }
+
+  .features-bar-container {
+    gap: 0;
+  }
+
+  .bar-feature-item {
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .bar-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .bar-text h4 {
+    font-size: 0.8rem;
+  }
+
+  .bar-text p {
+    font-size: 0.68rem;
+  }
+
+  .grid-container,
+  .feedback-container {
+    gap: 18px;
+  }
+
+  .section-title-underlined {
+    font-size: 1.35rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .story-content p,
+  .visit-content p,
+  .store-address,
+  .brand-desc {
+    font-size: 0.84rem;
+  }
+
+  .story-image-box,
+  .visit-image-box {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .product-card::before {
+    margin: 11px 11px 0;
+    font-size: 0.62rem;
+  }
+
+  .product-img-wrapper {
+    height: 138px;
+    padding: 8px;
+  }
+
+  .product-info h3 {
+    font-size: 0.86rem;
+  }
+
+  .product-price,
+  .btn-product-check {
+    font-size: 0.78rem;
+  }
+
+  .reviews-header,
+  .insta-header {
+    align-items: flex-start;
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .reviews-header h3,
+  .newsletter-content h3,
+  .insta-header h3 {
+    font-size: 0.98rem;
+  }
+
+  .review-text,
+  .newsletter-content p {
+    font-size: 0.72rem;
+  }
+
+  .newsletter-form input,
+  .btn-subscribe,
+  .btn-instagram {
+    font-size: 0.78rem;
+  }
+
+  .site-footer {
+    padding-top: 36px;
+  }
+
+  .footer-top-grid {
+    gap: 22px;
+    padding-bottom: 24px;
+  }
+
+  .footer-col h3 {
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+  }
+
+  .footer-col ul,
+  .contact-col p {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .action-btn span {
+    display: none;
+  }
+
+  .action-btn {
+    flex: 0 0 42px;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  .header-actions {
+    width: auto;
+    margin-left: auto;
+  }
+
+  .search-wrapper {
+    flex-basis: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(1.76rem, 10vw, 2.15rem);
+  }
+
+  .hero-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop alignment fix: reduce left gutter and keep header on one line. */
+@media (min-width: 769px) {
+  :root {
+    --max-width: 1660px;
+  }
+
+  .top-bar-container,
+  .header-container,
+  .nav-container,
+  .hero-container,
+  .grid-container,
+  .feedback-container,
+  .footer-bottom-container,
+  .footer-top-grid {
+    padding-left: 8px;
+    padding-right: 24px;
+  }
+
+  .header-container {
+    display: grid !important;
+    grid-template-columns: max-content minmax(220px, 1fr) max-content;
+    flex-wrap: nowrap !important;
+    gap: 10px;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .logo-area,
+  .header-actions,
+  .action-btn {
+    flex-shrink: 0;
+  }
+
+  .search-wrapper {
+    order: 0 !important;
+    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+  }
+
+  .header-actions {
+    display: grid !important;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    flex-wrap: nowrap !important;
+    gap: 6px;
+    min-width: max-content !important;
+    width: max-content !important;
+  }
+
+  .action-btn,
+  .action-btn span,
+  .top-bar-link,
+  .top-bar-right,
+  .category-btn,
+  .nav-link {
+    white-space: nowrap;
+  }
+
+  .action-btn {
+    width: max-content !important;
+    min-width: max-content !important;
+    max-width: none !important;
+    padding: 7px 9px;
+    font-size: 0.78rem;
+    line-height: 1;
+  }
+
+  .action-btn span {
+    display: inline-block !important;
+    white-space: nowrap !important;
+  }
+
+  .store-action {
+    padding: 8px 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .home-page .top-bar-container,
+  .home-page .header-container,
+  .home-page .nav-container,
+  .home-page .hero-container,
+  .home-page .features-bar-container,
+  .home-page .grid-container,
+  .home-page .feedback-container,
+  .home-page .footer-bottom-container,
+  .home-page .footer-top-grid {
+    padding-left: 32px !important;
+  }
+
+  .home-page .features-bar-container {
+    width: auto;
+    max-width: none;
+    margin-left: 32px !important;
+    margin-right: 24px !important;
+  }
+
+  .story-layout,
+  .visit-layout {
+    align-items: center !important;
+  }
+
+  .story-image-box,
+  .visit-image-box {
+    align-self: center;
+    width: 100%;
+    height: auto !important;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(18, 52, 59, 0.12);
+  }
+
+  .story-img,
+  .visit-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* Match referenced Our Story and Visit Store blocks exactly. */
+.home-page .story-layout,
+.home-page .visit-layout {
+  display: grid !important;
+  grid-template-columns: 1.2fr 1fr !important;
+  gap: 40px !important;
+  align-items: center !important;
+}
+
+.home-page .story-content p {
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.home-page .btn-story-action {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 10px 22px;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-top: 12px;
+  display: inline-block;
+  width: fit-content;
+  box-shadow: 0 4px 12px rgba(12, 77, 162, 0.2);
+  transition: var(--transition);
+}
+
+.home-page .btn-story-action:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.home-page .story-image-box,
+.home-page .visit-image-box {
+  align-self: center !important;
+  border-radius: var(--border-radius-md) !important;
+  overflow: hidden !important;
+  height: 240px !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  box-shadow: var(--box-shadow) !important;
+}
+
+.home-page .story-img,
+.home-page .visit-img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+  transition: var(--transition);
+}
+
+.home-page .story-img:hover,
+.home-page .visit-img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .home-page .story-layout,
+  .home-page .visit-layout {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .home-page .story-image-box,
+  .home-page .visit-image-box {
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .logo-area {
+    gap: 8px;
+  }
+
+  .logo-icon-svg {
+    width: 48px;
+    height: 38px;
+  }
+
+  .logo-icon-svg svg {
+    width: 48px;
+    height: 34px;
+  }
+
+  .brand-alok {
+    font-size: 1.55rem;
+  }
+
+  .brand-sub {
+    font-size: 0.54rem;
+    letter-spacing: 2.7px;
+  }
+
+  .search-form {
+    min-height: 44px;
+  }
+
+  .search-form input {
+    padding: 10px 12px;
+    font-size: 0.84rem;
+  }
+
+  .search-btn {
+    padding: 0 15px;
+    font-size: 0.8rem;
+  }
+
+  .action-btn {
+    gap: 5px;
+    padding: 7px 8px;
+    font-size: 0.76rem;
+  }
+
+  .action-btn .lucide,
+  .action-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .store-action {
+    padding: 8px 10px;
+  }
+}
+
+/* Final mobile refinement layer. These rules are intentionally mobile-only. */
+@media (max-width: 768px) {
+  .home-page .top-bar-container,
+  .home-page .header-container,
+  .home-page .nav-container,
+  .home-page .hero-container,
+  .home-page .grid-container,
+  .home-page .feedback-container,
+  .home-page .footer-top-grid,
+  .home-page .footer-bottom-container {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .home-page .main-header {
+    position: static;
+    padding: 8px 0;
+  }
+
+  .home-page .header-container {
+    gap: 8px;
+  }
+
+  .home-page .logo-area {
+    gap: 8px;
+  }
+
+  .home-page .logo-icon-svg {
+    width: 42px;
+    height: 34px;
+    border-radius: 9px;
+  }
+
+  .home-page .logo-icon-svg svg {
+    width: 42px;
+    height: 30px;
+  }
+
+  .home-page .brand-alok {
+    font-size: 1.3rem;
+  }
+
+  .home-page .brand-sub {
+    font-size: 0.48rem;
+    letter-spacing: 2.2px;
+  }
+
+  .home-page .header-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 42px);
+    justify-content: end;
+    width: auto;
+    margin-left: auto;
+    gap: 6px;
+  }
+
+  .home-page .action-btn,
+  .home-page .store-action {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .home-page .action-btn span {
+    display: none;
+  }
+
+  .home-page .search-form {
+    min-height: 40px;
+  }
+
+  .home-page .search-form input {
+    padding: 9px 11px;
+    font-size: 0.8rem;
+  }
+
+  .home-page .search-btn {
+    padding: 0 13px;
+    font-size: 0.76rem;
+  }
+
+  .home-page .nav-container {
+    min-height: 40px;
+  }
+
+  .home-page .nav-links {
+    gap: 12px;
+    padding: 7px 0;
+  }
+
+  .home-page .nav-link {
+    font-size: 0.78rem;
+  }
+
+  .home-page .hero-section {
+    min-height: auto;
+    padding: 26px 0 24px;
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.94) 50%, rgba(18, 52, 59, 0.42) 100%),
+      url('assets/hero_showroom.png');
+    background-position: center top;
+  }
+
+  .home-page .hero-container {
+    gap: 16px;
+  }
+
+  .home-page .hero-content {
+    gap: 10px;
+    max-width: none;
+  }
+
+  .home-page .hero-title {
+    max-width: 12ch;
+    font-size: clamp(1.68rem, 8.8vw, 2.34rem);
+    line-height: 1.08;
+  }
+
+  .home-page .hero-subtitle {
+    max-width: 28ch;
+    font-size: 0.86rem;
+  }
+
+  .home-page .hero-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin: 6px 0 10px;
+    max-width: none;
+    padding-left: 0;
+  }
+
+  .home-page .hero-feature-item {
+    min-height: 86px;
+    gap: 6px;
+    padding: 9px;
+    border-radius: 8px;
+  }
+
+  .home-page .hero-feature-icon {
+    width: 21px;
+    height: 21px;
+  }
+
+  .home-page .hero-feature-text span {
+    font-size: 0.7rem;
+    line-height: 1.16;
+  }
+
+  .home-page .hero-feature-text .feat-bold {
+    font-size: 0.76rem;
+  }
+
+  .home-page .hero-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 0;
+  }
+
+  .home-page .btn {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 9px 10px;
+    border-radius: 999px;
+  }
+
+  .home-page .btn span {
+    font-size: 0.82rem;
+  }
+
+  .home-page .btn small {
+    display: none;
+  }
+
+  .home-page .why-shop-widget {
+    width: 100%;
+    min-height: 0;
+    padding: 14px;
+    border-radius: 8px;
+  }
+
+  .home-page .why-shop-widget h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+  }
+
+  .home-page .why-shop-list {
+    gap: 7px;
+  }
+
+  .home-page .why-shop-list li {
+    font-size: 0.73rem;
+    line-height: 1.25;
+  }
+
+  .home-page .google-rating-box {
+    margin-top: 10px;
+    padding: 8px;
+  }
+
+  .home-page .features-bar {
+    padding: 10px 0 0;
+  }
+
+  .home-page .features-bar-container,
+  .home-page .card-section,
+  .home-page .feedback-card {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .home-page .features-bar-container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .home-page .bar-feature-item {
+    min-height: 44px;
+    padding: 8px 0;
+  }
+
+  .home-page .main-content-grid {
+    padding: 24px 0;
+  }
+
+  .home-page .grid-container,
+  .home-page .feedback-container {
+    gap: 14px;
+  }
+
+  .home-page .section-title-underlined {
+    font-size: 1.22rem;
+    margin-bottom: 0.72rem;
+    padding-bottom: 0.38rem;
+  }
+
+  .home-page .story-layout,
+  .home-page .visit-layout {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .home-page .story-content p,
+  .home-page .visit-content p,
+  .home-page .store-address {
+    font-size: 0.8rem;
+    line-height: 1.48;
+  }
+
+  .home-page .btn-story-action,
+  .home-page .btn-directions {
+    min-height: 38px;
+    padding: 8px 16px;
+    font-size: 0.78rem;
+  }
+
+  .home-page .story-image-box,
+  .home-page .visit-image-box {
+    height: 156px !important;
+    border-radius: 8px !important;
+  }
+
+  .home-page .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .home-page .product-card {
+    border-radius: 10px;
+  }
+
+  .home-page .product-img-wrapper {
+    height: 112px;
+  }
+
+  .home-page .product-info {
+    padding: 10px;
+  }
+
+  .home-page .product-info h3 {
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+
+  .home-page .product-price,
+  .home-page .btn-product-check {
+    font-size: 0.72rem;
+  }
+
+  .home-page .feedback-newsletter-section {
+    padding: 6px 0 28px;
+  }
+
+  .home-page .newsletter-form {
+    gap: 8px;
+  }
+
+  .home-page .newsletter-form input {
+    min-height: 40px;
+  }
+
+  .home-page .insta-grid {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-page .header-actions {
+    grid-template-columns: repeat(3, 42px);
+    justify-content: end;
+    width: auto;
+    margin-left: auto;
+  }
+
+  .home-page .action-btn,
+  .home-page .store-action {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  .home-page .action-btn span {
+    display: none;
+  }
+
+  .home-page .hero-section {
+    padding-top: 22px;
+  }
+
+  .home-page .hero-title {
+    max-width: 11ch;
+    font-size: clamp(1.52rem, 8.7vw, 1.98rem);
+  }
+
+  .home-page .hero-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .home-page .hero-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-page .hero-feature-item {
+    min-height: 80px;
+    padding: 8px;
+  }
+
+  .home-page .hero-feature-text span {
+    font-size: 0.66rem;
+  }
+
+  .home-page .hero-feature-text .feat-bold {
+    font-size: 0.72rem;
+  }
+
+  .home-page .hero-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .story-image-box,
+  .home-page .visit-image-box {
+    height: 136px !important;
+  }
+
+  .home-page .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero banner only: keep the four trust blocks in a 2x2 grid on mobile. */
+@media (max-width: 768px) {
+  body.home-page .hero-section {
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0.5) 47%, rgba(18, 52, 59, 0.48) 100%),
+      url('assets/hero_showroom.png') !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+  }
+
+  body.home-page .hero-section .hero-content > .hero-features {
+    display: grid !important;
+    width: 100% !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-auto-flow: row !important;
+    align-items: stretch !important;
+  }
+
+  body.home-page .hero-section .hero-content > .hero-features > .hero-feature-item {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    grid-column: auto !important;
+  }
+}
+
+/* Color and motion refresh: visual-only, no shape or size changes. */
+body.home-page {
+  background:
+    linear-gradient(180deg, #f3faf7 0%, #fffaf3 42%, #f7fbfa 100%);
+}
+
+.home-page .top-bar {
+  background: linear-gradient(90deg, #0c1c24 0%, #12343b 58%, #173f45 100%);
+  color: #d7ebe7;
+}
+
+.home-page .main-header,
+.home-page .nav-bar {
+  background-color: rgba(255, 255, 255, 0.88);
+  border-color: rgba(18, 52, 59, 0.1);
+  box-shadow: 0 10px 32px rgba(18, 52, 59, 0.06);
+}
+
+.home-page .brand-alok,
+.home-page .hero-title,
+.home-page .hero-location,
+.home-page .hero-location-mangawa,
+.home-page .section-title-underlined,
+.home-page .product-info h3,
+.home-page .reviews-header h3,
+.home-page .newsletter-content h3,
+.home-page .insta-header h3,
+.home-page .bar-text h4 {
+  color: #12343b;
+}
+
+.home-page .brand-sub,
+.home-page .hero-feature-icon,
+.home-page .bar-icon,
+.home-page .hero-feature-text .feat-bold,
+.home-page .product-price,
+.home-page .rating-num,
+.home-page .rating-val {
+  color: #06766f;
+}
+
+.home-page .hero-section {
+  background-image:
+    linear-gradient(105deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 252, 249, 0.9) 35%, rgba(18, 52, 59, 0.42) 74%, rgba(12, 28, 36, 0.68) 100%),
+    url('assets/hero_showroom.png');
+  box-shadow: inset 0 -1px 0 rgba(18, 52, 59, 0.08);
+}
+
+.home-page .hero-subtitle,
+.home-page .story-content p,
+.home-page .visit-content p,
+.home-page .review-text,
+.home-page .newsletter-content p,
+.home-page .bar-text p,
+.home-page .rating-count {
+  color: #4f6669;
+}
+
+.home-page .hero-feature-item,
+.home-page .features-bar-container,
+.home-page .card-section,
+.home-page .feedback-card,
+.home-page .product-card {
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(236, 249, 246, 0.9) 100%);
+  border-color: rgba(6, 118, 111, 0.16);
+  box-shadow: 0 16px 38px rgba(18, 52, 59, 0.09);
+}
+
+.home-page .hero-feature-item:nth-child(2),
+.home-page .feedback-card:nth-child(2),
+.home-page .product-card:nth-child(2) {
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 247, 237, 0.9) 100%);
+}
+
+.home-page .hero-feature-item:nth-child(3),
+.home-page .feedback-card:nth-child(3),
+.home-page .product-card:nth-child(3) {
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(239, 246, 255, 0.9) 100%);
+}
+
+.home-page .why-shop-widget {
+  background:
+    linear-gradient(145deg, rgba(15, 36, 45, 0.96) 0%, rgba(6, 118, 111, 0.94) 100%);
+  color: #f8fffd;
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 22px 54px rgba(12, 28, 36, 0.26);
+}
+
+.home-page .why-shop-widget h3,
+.home-page .why-shop-list li {
+  color: #f8fffd;
+}
+
+.home-page .why-shop-list li .lucide {
+  color: #f8c56b;
+}
+
+.home-page .google-rating-box {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.52);
+}
+
+.home-page .btn-primary,
+.home-page .btn-product-check,
+.home-page .btn-story-action,
+.home-page .btn-subscribe,
+.home-page .btn-instagram,
+.home-page .search-btn,
+.home-page .category-btn {
+  background-image: linear-gradient(135deg, #12343b 0%, #06766f 100%);
+  box-shadow: 0 12px 24px rgba(18, 52, 59, 0.18);
+}
+
+.home-page .store-action,
+.home-page .btn-directions {
+  background-image: linear-gradient(135deg, #f26b21 0%, #df5e19 100%);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(242, 107, 33, 0.22);
+}
+
+.home-page .btn-outline {
+  background-color: rgba(255, 255, 255, 0.78);
+  border-color: rgba(6, 118, 111, 0.58);
+  color: #06766f;
+}
+
+.home-page .product-img-wrapper,
+.home-page .story-image-box,
+.home-page .visit-image-box,
+.home-page .insta-grid-item {
+  background-image: linear-gradient(145deg, #ffffff 0%, #edf8f5 100%);
+}
+
+.home-page .site-footer {
+  background: linear-gradient(145deg, #0c1c24 0%, #132b33 62%, #17343a 100%);
+  color: #dbe9e6;
+}
+
+.home-page .mini-map-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.home-page .scroll-reveal.reveal-visible {
+  animation: softColorSettle 0.72s ease both;
+}
+
+.home-page .hero-feature-item,
+.home-page .product-card,
+.home-page .feedback-card,
+.home-page .card-section,
+.home-page .features-bar-container,
+.home-page .why-shop-widget,
+.home-page .btn,
+.home-page .action-btn,
+.home-page .btn-product-check,
+.home-page .btn-story-action,
+.home-page .btn-subscribe,
+.home-page .btn-instagram {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background-color 0.28s ease,
+    filter 0.28s ease,
+    color 0.28s ease;
+}
+
+.home-page .hero-feature-item:hover,
+.home-page .product-card:hover,
+.home-page .feedback-card:hover,
+.home-page .card-section:hover,
+.home-page .features-bar-container:hover {
+  border-color: rgba(242, 107, 33, 0.34);
+  box-shadow: 0 20px 46px rgba(18, 52, 59, 0.14);
+  filter: saturate(1.04);
+}
+
+.home-page .why-shop-widget:hover {
+  filter: saturate(1.08);
+}
+
+.home-page .product-card:hover img,
+.home-page .story-image-box:hover img,
+.home-page .visit-image-box:hover img,
+.home-page .insta-grid-item:hover img {
+  filter: saturate(1.06) contrast(1.03);
+}
+
+@keyframes softColorSettle {
+  from {
+    opacity: 0;
+    filter: saturate(0.86);
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    filter: saturate(1);
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  body.home-page .hero-section {
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(244, 252, 249, 0.74) 48%, rgba(18, 52, 59, 0.46) 100%),
+      url('assets/hero_showroom.png') !important;
+  }
+
+  .home-page .hero-feature-item,
+  .home-page .features-bar-container,
+  .home-page .card-section,
+  .home-page .feedback-card,
+  .home-page .product-card {
+    box-shadow: 0 12px 28px rgba(18, 52, 59, 0.09);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .scroll-reveal.reveal-visible {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   Premium Visual System
+   This final layer standardizes color, shadow, borders, and hover feedback
+   without changing the HTML structure, component layout, or functionality.
+   ========================================================================== */
+
+/* Core palette: replaces teal/blue drift with one premium dark primary,
+   one orange accent, neutral surfaces, and semantic status colors. */
+:root {
+  --primary-color: #0F172A;
+  --primary-dark: #0F172A;
+  --primary-hover: #1E293B;
+  --primary-light: #F1F5F9;
+  --accent-color: #FF6B00;
+  --accent-hover: #EA580C;
+  --accent-danger: #EF4444;
+  --bg-main: #F8FAFC;
+  --bg-alt: #F1F5F9;
+  --text-dark: #111827;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+  --star-color: #F59E0B;
+  --success-color: #22C55E;
+  --danger-color: #EF4444;
+  --warning-color: #F59E0B;
+  --premium-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  --premium-card-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  --premium-hover-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+  --transition: all 0.25s ease;
+}
+
+/* Neutral page surfaces: keeps the site quiet and electronics-store clean. */
+body,
+body.home-page {
+  background: var(--bg-main);
+  color: var(--text-dark);
+}
+
+.features-bar,
+.main-content-grid,
+.feedback-newsletter-section {
+  background: var(--bg-alt);
+}
+
+/* Header and navigation: uses the primary dark color with white text and
+   an orange animated underline for navigation feedback. */
+.home-page .top-bar,
+.home-page .main-header,
+.home-page .nav-bar {
+  background: var(--primary-color);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.home-page .top-bar,
+.home-page .top-bar-link,
+.home-page .top-bar-right,
+.home-page .nav-link,
+.home-page .action-btn,
+.home-page .brand-alok,
+.home-page .brand-sub {
+  color: #FFFFFF;
+}
+
+.logo-icon-svg text:first-child {
+  fill: #0F172A;
+}
+
+.home-page .main-header .logo-icon-svg text:first-child,
+.site-footer .logo-icon-svg text:first-child {
+  fill: #FFFFFF;
+}
+
+.logo-icon-svg text:last-child {
+  fill: #FF6B00;
+}
+
+.home-page .brand-sub::before,
+.home-page .brand-sub::after {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.nav-link,
+.top-bar-link,
+.action-btn {
+  background-image: linear-gradient(var(--accent-color), var(--accent-color));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 2px;
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.top-bar-link:hover,
+.action-btn:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  background-size: 100% 2px;
+}
+
+.nav-link.highlight {
+  color: var(--accent-color);
+}
+
+.nav-link.highlight::after {
+  background: var(--danger-color);
+  color: #FFFFFF;
+}
+
+.category-btn {
+  background: var(--primary-hover);
+  color: #FFFFFF;
+}
+
+.category-btn:hover {
+  background: var(--accent-color);
+}
+
+.category-dropdown-content {
+  background: #FFFFFF;
+  border-color: var(--border-color);
+  box-shadow: var(--premium-shadow);
+}
+
+.category-dropdown-content a {
+  color: var(--text-dark);
+}
+
+.category-dropdown-content a:hover {
+  background: var(--bg-alt);
+  color: var(--accent-color);
+}
+
+/* Search controls: pill shape, neutral border, orange focus, dark button. */
+.search-form,
+.stock-search {
+  min-height: 44px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.search-form:focus-within,
+.stock-search:focus-within {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.14);
+}
+
+.search-form input,
+.stock-search input,
+.newsletter-form input,
+.sort-control select {
+  color: var(--text-dark);
+  background: #FFFFFF;
+}
+
+.search-btn,
+.stock-search button {
+  background: var(--primary-color);
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.search-btn:hover,
+.stock-search button:hover {
+  background: var(--primary-hover);
+  transform: scale(1.02);
+}
+
+/* Button system: orange primary actions, white secondary actions, consistent
+   borders, and a subtle premium scale on hover. */
+.btn,
+.btn-product-check,
+.btn-story-action,
+.btn-directions,
+.btn-subscribe,
+.btn-instagram,
+.btn-map-action,
+.footer-map-btn,
+.store-action {
+  border-radius: 12px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-primary,
+.btn-product-check,
+.btn-story-action,
+.btn-subscribe,
+.btn-instagram,
+.btn-map-action,
+.footer-map-btn,
+.store-action {
+  background: var(--accent-color);
+  color: #FFFFFF;
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 24px rgba(255, 107, 0, 0.18);
+}
+
+.btn-primary:hover,
+.btn-product-check:hover,
+.btn-story-action:hover,
+.btn-subscribe:hover,
+.btn-instagram:hover,
+.btn-map-action:hover,
+.footer-map-btn:hover,
+.store-action:hover {
+  background: var(--accent-hover);
+  color: #FFFFFF;
+  border-color: var(--accent-hover);
+  transform: scale(1.02);
+  box-shadow: 0 14px 30px rgba(234, 88, 12, 0.24);
+}
+
+.btn-outline,
+.btn-directions {
+  background: #FFFFFF;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.btn-outline:hover,
+.btn-directions:hover {
+  background: var(--accent-color);
+  color: #FFFFFF;
+  transform: scale(1.02);
+}
+
+/* Hero: keeps the same image and adds a premium dark overlay with white copy. */
+.home-page .hero-section {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)),
+    url('assets/hero_showroom.png');
+  border-bottom-color: var(--border-color);
+}
+
+.home-page .hero-title,
+.home-page .hero-location,
+.home-page .hero-location-mangawa {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.home-page .hero-subtitle {
+  color: #E2E8F0;
+  font-weight: 400;
+}
+
+.home-page .hero-buttons .btn-primary {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.home-page .hero-buttons .btn-outline {
+  background: transparent;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.home-page .hero-buttons .btn-outline:hover {
+  background: #FFFFFF;
+  color: var(--primary-color);
+}
+
+/* Section titles: dark text with orange underline, replacing blue/teal cues. */
+.section-title-underlined,
+.home-page .section-title-underlined {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.section-title-underlined::after {
+  background: var(--accent-color);
+}
+
+/* Cards and section panels: one consistent white surface, neutral border,
+   subtle shadow, and premium hover lift. */
+.features-bar-container,
+.card-section,
+.feedback-card,
+.product-card,
+.review-item,
+.google-rating-box,
+.newsletter-card,
+.instagram-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--premium-card-shadow);
+  transition: var(--transition);
+}
+
+.card-section {
+  border-radius: 20px;
+}
+
+.features-bar-container,
+.feedback-card {
+  border-radius: 20px;
+}
+
+.product-card,
+.home-page .product-card,
+.product-card:nth-child(1),
+.product-card:nth-child(2),
+.product-card:nth-child(3),
+.product-card:nth-child(4) {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--premium-card-shadow);
+}
+
+.card-section:hover,
+.feedback-card:hover,
+.features-bar-container:hover,
+.product-card:hover,
+.home-page .product-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-color);
+  box-shadow: var(--premium-hover-shadow);
+}
+
+.product-card::before {
+  background: var(--danger-color);
+  color: #FFFFFF;
+}
+
+/* Text color normalization: dark headings, slate supporting copy. */
+.home-page .product-info h3,
+.home-page .bar-text h4,
+.reviews-header h3,
+.newsletter-content h3,
+.insta-header h3,
+.footer-col h3,
+.story-content strong,
+.store-address strong {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.story-content p,
+.visit-content p,
+.review-text,
+.newsletter-content p,
+.bar-text p,
+.brand-desc,
+.rating-count,
+.reviews-count {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.product-price,
+.rating-num,
+.rating-val {
+  color: var(--accent-color);
+}
+
+/* Icon system: orange icons everywhere except semantic status indicators. */
+.hero-feature-icon,
+.bar-icon,
+.why-shop-list li .lucide,
+.contact-number .lucide,
+.contact-col .lucide,
+.map-icon,
+.paper-plane-box .lucide,
+.footer-map-btn .lucide,
+.social-links .lucide {
+  color: var(--accent-color);
+}
+
+.star-fill,
+.rating-stars .lucide,
+.reviewer-stars .lucide,
+.stars .lucide {
+  color: var(--warning-color);
+  fill: var(--warning-color);
+}
+
+/* Trust widget: premium dark surface with orange icon accents. */
+.why-shop-widget,
+.home-page .why-shop-widget {
+  background: var(--primary-color);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--premium-shadow);
+}
+
+.why-shop-widget h3,
+.why-shop-list li {
+  color: #FFFFFF;
+}
+
+.google-rating-box {
+  color: var(--text-dark);
+}
+
+/* Footer: clean dark primary finish with muted supporting text. */
+.site-footer,
+.home-page .site-footer {
+  background: var(--primary-color);
+  color: #FFFFFF;
+}
+
+.site-footer a:hover,
+.footer-col a:hover {
+  color: var(--accent-color);
+}
+
+.footer-col p,
+.footer-col li,
+.copyright {
+  color: #CBD5E1;
+}
+
+/* Modal and toast polish: neutral cards with subtle shadow and orange accent. */
+.modal-content,
+.toast {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--premium-shadow);
+}
+
+.modal-content h3 {
+  color: var(--text-dark);
+}
+
+.toast .lucide {
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  /* Mobile keeps the same responsive structure while using the same overlay,
+     surfaces, borders, and compact premium shadows. */
+  body.home-page .hero-section {
+    background-image:
+      linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)),
+      url('assets/hero_showroom.png') !important;
+  }
+
+  .home-page .main-header {
+    background: var(--primary-color);
+  }
+
+  .home-page .hero-feature-item,
+  .home-page .features-bar-container,
+  .home-page .card-section,
+  .home-page .feedback-card,
+  .home-page .product-card {
+    background: #FFFFFF;
+    border-color: var(--border-color);
+    box-shadow: var(--premium-card-shadow);
+  }
+}
+
+/* ==========================================================================
+   Home Page Premium Final Pass
+   This layer applies the requested modern ecommerce color system to the home
+   page only. It intentionally avoids layout, spacing, HTML, and functionality
+   changes, and only normalizes color, borders, shadows, and hover states.
+   ========================================================================== */
+
+/* Home surface: clean neutral canvas with light alternate bands. */
+body.home-page {
+  background: #F8FAFC;
+  color: #111827;
+}
+
+.home-page .features-bar,
+.home-page .main-content-grid,
+.home-page .feedback-newsletter-section {
+  background: #F1F5F9;
+}
+
+/* Header and navigation: primary dark, white text, orange underline motion. */
+.home-page .top-bar,
+.home-page .main-header,
+.home-page .nav-bar {
+  background: #0F172A;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.home-page .top-bar,
+.home-page .top-bar-link,
+.home-page .top-bar-right,
+.home-page .brand-alok,
+.home-page .brand-sub,
+.home-page .nav-link,
+.home-page .action-btn {
+  color: #FFFFFF;
+}
+
+.home-page .logo-icon-svg text:first-child {
+  fill: #FFFFFF;
+}
+
+.home-page .logo-icon-svg text:last-child {
+  fill: #FF6B00;
+}
+
+.home-page .brand-sub::before,
+.home-page .brand-sub::after {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.home-page .nav-link,
+.home-page .top-bar-link,
+.home-page .action-btn {
+  background-image: linear-gradient(#FF6B00, #FF6B00);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 2px;
+  transition: all 0.25s ease;
+}
+
+.home-page .nav-link:hover,
+.home-page .top-bar-link:hover,
+.home-page .action-btn:hover {
+  color: #FFFFFF;
+  background-color: transparent;
+  background-size: 100% 2px;
+}
+
+.home-page .nav-link.highlight {
+  color: #FF6B00;
+}
+
+.home-page .nav-link.highlight::after {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+.home-page .category-btn {
+  background: #1E293B;
+  color: #FFFFFF;
+}
+
+.home-page .category-btn:hover {
+  background: #FF6B00;
+}
+
+.home-page .category-dropdown-content {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.home-page .category-dropdown-content a {
+  color: #111827;
+}
+
+.home-page .category-dropdown-content a:hover {
+  background: #F8FAFC;
+  color: #FF6B00;
+}
+
+/* Search bar: white pill, smaller premium height, orange focus ring. */
+.home-page .search-form {
+  min-height: 44px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.home-page .search-form:focus-within {
+  border-color: #FF6B00;
+  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.14);
+}
+
+.home-page .search-form input {
+  color: #111827;
+  background: #FFFFFF;
+}
+
+.home-page .search-btn {
+  background: #0F172A;
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.home-page .search-btn:hover {
+  background: #1E293B;
+  transform: scale(1.02);
+}
+
+.home-page .search-results-dropdown {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+/* Buttons: orange primary actions and white/orange secondary actions. */
+.home-page .btn,
+.home-page .btn-product-check,
+.home-page .btn-story-action,
+.home-page .btn-directions,
+.home-page .btn-subscribe,
+.home-page .btn-instagram,
+.home-page .btn-map-action,
+.home-page .footer-map-btn,
+.home-page .store-action {
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.home-page .btn-primary,
+.home-page .btn-product-check,
+.home-page .btn-story-action,
+.home-page .btn-subscribe,
+.home-page .btn-instagram,
+.home-page .btn-map-action,
+.home-page .footer-map-btn,
+.home-page .store-action {
+  background: #FF6B00;
+  color: #FFFFFF;
+  border-color: #FF6B00;
+  box-shadow: 0 10px 24px rgba(255, 107, 0, 0.18);
+}
+
+.home-page .btn-primary:hover,
+.home-page .btn-product-check:hover,
+.home-page .btn-story-action:hover,
+.home-page .btn-subscribe:hover,
+.home-page .btn-instagram:hover,
+.home-page .btn-map-action:hover,
+.home-page .footer-map-btn:hover,
+.home-page .store-action:hover {
+  background: #EA580C;
+  color: #FFFFFF;
+  border-color: #EA580C;
+  transform: scale(1.02);
+  box-shadow: 0 14px 30px rgba(234, 88, 12, 0.22);
+}
+
+.home-page .btn-outline,
+.home-page .btn-directions {
+  background: #FFFFFF;
+  border: 2px solid #FF6B00;
+  color: #FF6B00;
+}
+
+.home-page .btn-outline:hover,
+.home-page .btn-directions:hover {
+  background: #FF6B00;
+  color: #FFFFFF;
+  transform: scale(1.02);
+}
+
+/* Hero: same image with requested dark overlay and white copy. */
+.home-page .hero-section {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)),
+    url('assets/hero_showroom.png') !important;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.home-page .hero-title,
+.home-page .hero-location,
+.home-page .hero-location-mangawa {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.home-page .hero-subtitle {
+  color: #E2E8F0;
+  font-weight: 400;
+}
+
+.home-page .hero-buttons .btn-primary {
+  background: #FF6B00;
+  border-color: #FF6B00;
+  color: #FFFFFF;
+}
+
+.home-page .hero-buttons .btn-primary:hover {
+  background: #EA580C;
+  border-color: #EA580C;
+}
+
+.home-page .hero-buttons .btn-outline {
+  background: transparent;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.home-page .hero-buttons .btn-outline:hover {
+  background: #FFFFFF;
+  color: #0F172A;
+}
+
+/* Hero trust chips and widget: white chips, primary dark widget, orange icons. */
+.home-page .hero-feature-item {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+.home-page .hero-feature-text span,
+.home-page .hero-feature-text .feat-bold {
+  color: #111827 !important;
+  text-shadow: none;
+}
+
+.home-page .hero-feature-icon {
+  color: #FF6B00 !important;
+  filter: none;
+}
+
+.home-page .why-shop-widget {
+  background: #0F172A;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.home-page .why-shop-widget h3,
+.home-page .why-shop-list li {
+  color: #FFFFFF;
+}
+
+.home-page .why-shop-list li .lucide {
+  color: #FF6B00;
+}
+
+.home-page .google-rating-box {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+/* Section headings: dark text with orange underline only. */
+.home-page .section-title-underlined {
+  color: #111827;
+  font-weight: 700;
+}
+
+.home-page .section-title-underlined::after {
+  background: #FF6B00;
+}
+
+/* Cards and repeated panels: uniform white cards and premium hover lift. */
+.home-page .features-bar-container,
+.home-page .card-section,
+.home-page .feedback-card,
+.home-page .product-card,
+.home-page .review-item,
+.home-page .newsletter-card,
+.home-page .instagram-card,
+.home-page .mini-map-card {
+  background: #FFFFFF;
+  background-image: none;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  transition: all 0.3s ease;
+}
+
+.home-page .features-bar-container,
+.home-page .card-section,
+.home-page .feedback-card,
+.home-page .mini-map-card {
+  border-radius: 20px;
+}
+
+.home-page .product-card,
+.home-page .product-card:nth-child(1),
+.home-page .product-card:nth-child(2),
+.home-page .product-card:nth-child(3),
+.home-page .product-card:nth-child(4) {
+  background: #FFFFFF;
+  background-image: none;
+  border: 1px solid #E2E8F0;
+  border-top: 1px solid #E2E8F0;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+.home-page .scroll-reveal.reveal-visible.card-section:hover,
+.home-page .scroll-reveal.reveal-visible.feedback-card:hover,
+.home-page .scroll-reveal.reveal-visible.features-bar-container:hover,
+.home-page .scroll-reveal.reveal-visible.product-card:hover,
+.home-page .card-section:hover,
+.home-page .feedback-card:hover,
+.home-page .features-bar-container:hover,
+.home-page .product-card:hover {
+  transform: translateY(-6px);
+  border-color: #FF6B00;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+  filter: none;
+}
+
+.home-page .product-card::before {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+.home-page .product-img-wrapper,
+.home-page .story-image-box,
+.home-page .visit-image-box,
+.home-page .insta-grid-item,
+.home-page .map-placeholder {
+  background: #F8FAFC;
+  background-image: none;
+  border-color: #E2E8F0;
+}
+
+/* Typography: consistent dark headings and slate body copy. */
+.home-page .bar-text h4,
+.home-page .product-info h3,
+.home-page .reviews-header h3,
+.home-page .newsletter-content h3,
+.home-page .insta-header h3,
+.home-page .footer-col h3,
+.home-page .story-content strong,
+.home-page .store-address strong {
+  color: #111827;
+  font-weight: 700;
+}
+
+.home-page .story-content p,
+.home-page .visit-content p,
+.home-page .store-address,
+.home-page .review-text,
+.home-page .newsletter-content p,
+.home-page .bar-text p,
+.home-page .brand-desc,
+.home-page .rating-count,
+.home-page .reviews-count,
+.home-page .review-date {
+  color: #64748B;
+  font-weight: 400;
+}
+
+.home-page .product-price,
+.home-page .rating-num,
+.home-page .rating-val,
+.home-page .insta-handle,
+.home-page .view-all-link,
+.home-page .map-text-link {
+  color: #FF6B00;
+}
+
+/* Icons: one accent color, semantic colors reserved for rating/status. */
+.home-page .lucide,
+.home-page .instagram-logo,
+.home-page .facebook-logo {
+  color: #FF6B00;
+  stroke: currentColor;
+}
+
+.home-page .star-fill,
+.home-page .rating-stars .lucide,
+.home-page .reviewer-stars .lucide,
+.home-page .stars .lucide {
+  color: #F59E0B;
+  fill: #F59E0B;
+}
+
+.home-page .rating-g-logo,
+.home-page .review-source-icon {
+  background: #0F172A;
+  color: #FFFFFF;
+}
+
+.home-page .contact-number .lucide,
+.home-page .why-shop-list .lucide {
+  color: #FF6B00;
+}
+
+/* Inputs and forms: neutral borders with orange focus behavior. */
+.home-page .newsletter-form input {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  color: #111827;
+}
+
+.home-page .newsletter-form input:focus {
+  border-color: #FF6B00;
+  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.14);
+}
+
+/* Footer: primary dark finish with white headings and slate support text. */
+.home-page .site-footer {
+  background: #0F172A;
+  color: #FFFFFF;
+}
+
+.home-page .site-footer .brand-alok,
+.home-page .site-footer .brand-sub,
+.home-page .site-footer .footer-col h3 {
+  color: #FFFFFF;
+}
+
+.home-page .site-footer p,
+.home-page .site-footer li,
+.home-page .copyright {
+  color: #CBD5E1;
+}
+
+.home-page .site-footer a:hover {
+  color: #FF6B00;
+}
+
+.home-page .payment-badge {
+  border-color: #E2E8F0;
+}
+
+/* Modal/toast: white premium surfaces with subtle shadows. */
+.home-page .modal-content,
+.home-page .toast {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.home-page .modal-content h3 {
+  color: #111827;
+}
+
+.home-page .modal-body,
+.home-page .modal-body p {
+  color: #64748B;
+}
+
+@media (max-width: 768px) {
+  /* Mobile home keeps existing responsive layout and only receives the same
+     premium visual treatment. */
+  body.home-page .hero-section {
+    background-image:
+      linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)),
+      url('assets/hero_showroom.png') !important;
+  }
+
+  .home-page .main-header,
+  .home-page .nav-bar {
+    background: #0F172A;
+  }
+
+  .home-page .btn {
+    border-radius: 12px;
+  }
+
+  .home-page .features-bar-container,
+  .home-page .card-section,
+  .home-page .feedback-card,
+  .home-page .product-card,
+  .home-page .hero-feature-item {
+    background: #FFFFFF;
+    border-color: #E2E8F0;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  }
+}
