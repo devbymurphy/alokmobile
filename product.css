@@ -1101,3 +1101,165 @@ body {
   color: #FFFFFF;
   transform: scale(1.02);
 }
+
+/* Final mobile-only product layout polish. Desktop remains unchanged. */
+@media (max-width: 768px) {
+  .product-header-inner,
+  .product-page {
+    width: calc(100% - 28px);
+    max-width: none;
+    margin-right: 14px;
+    margin-left: 14px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .product-header-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .product-header .logo-area {
+    justify-self: center;
+  }
+
+  .product-header-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+  }
+
+  .product-header-links a {
+    justify-content: center;
+    min-height: 38px;
+    padding: 8px 6px;
+    font-size: 0.74rem;
+    border-radius: 10px;
+  }
+
+  .product-page {
+    padding-top: 16px;
+    padding-bottom: 38px;
+  }
+
+  .back-link {
+    width: max-content;
+    max-width: 100%;
+    margin-bottom: 14px;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+    border-radius: 999px;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .product-gallery,
+  .product-main-info,
+  .product-extra,
+  .not-found-product {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .product-image-stage {
+    min-height: 240px;
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .product-image-stage img {
+    max-height: 220px;
+  }
+
+  .product-badges,
+  .spec-grid,
+  .benefit-grid {
+    grid-template-columns: 1fr !important;
+    gap: 9px;
+  }
+
+  .product-badges span,
+  .spec-item,
+  .benefit-grid div {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .product-brand {
+    font-size: 0.72rem;
+    margin-bottom: 7px;
+  }
+
+  .product-main-info h1 {
+    font-size: clamp(1.65rem, 8vw, 2.15rem);
+    line-height: 1.12;
+    margin-bottom: 10px;
+  }
+
+  .product-rating-row {
+    gap: 8px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+  }
+
+  .product-price-panel {
+    padding: 14px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+  }
+
+  .detail-price {
+    font-size: 1.75rem;
+  }
+
+  .detail-section {
+    margin-top: 17px;
+  }
+
+  .detail-section h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .color-options {
+    gap: 8px;
+  }
+
+  .color-chip {
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+
+  .detail-actions {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .detail-primary,
+  .detail-secondary {
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 0.84rem;
+  }
+
+  .product-extra {
+    margin-top: 14px;
+  }
+
+  .benefit-grid strong {
+    font-size: 0.86rem;
+  }
+
+  .benefit-grid span,
+  .spec-item span {
+    font-size: 0.76rem;
+  }
+}
