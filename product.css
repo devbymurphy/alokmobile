@@ -1263,3 +1263,199 @@ body {
     font-size: 0.76rem;
   }
 }
+
+/* Custom product motion layer. */
+.product-header {
+  animation: productHeaderDrop 0.68s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.product-image-stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image-stage::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.16), transparent 58%);
+  transform: scale(0.8);
+  animation: productHalo 4.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.product-image-stage img {
+  position: relative;
+  z-index: 1;
+  animation: productFloat 5.2s ease-in-out infinite;
+}
+
+.product-motion-reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0) scale(0.985);
+  filter: blur(9px) saturate(0.9);
+  transition:
+    opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.84s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.84s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.34s ease,
+    border-color 0.34s ease;
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.product-motion-reveal:nth-child(even) {
+  transform: translate3d(26px, 18px, 0) rotate(0.5deg) scale(0.985);
+}
+
+.product-motion-reveal.motion-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  filter: blur(0) saturate(1);
+}
+
+.product-depth {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.product-depth::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(255, 107, 0, 0.18), transparent 34%);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+}
+
+.product-depth > * {
+  position: relative;
+  z-index: 1;
+}
+
+.product-depth:hover {
+  transform:
+    perspective(900px)
+    rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg))
+    translateY(-3px);
+}
+
+.product-depth:hover::after {
+  opacity: 1;
+}
+
+.product-gallery:hover .product-image-stage img {
+  transform: translateY(-4px) scale(1.022) rotate(-0.35deg);
+  filter: drop-shadow(0 24px 28px rgba(15, 23, 42, 0.22)) saturate(1.08);
+}
+
+.product-badges span,
+.color-chip,
+.spec-item,
+.benefit-grid div {
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    color 0.28s ease;
+}
+
+.product-badges span:hover,
+.color-chip:hover,
+.spec-item:hover,
+.benefit-grid div:hover {
+  transform: translateY(-2px);
+  border-color: #FF6B00;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.detail-primary,
+.detail-secondary,
+.product-header-links a,
+.back-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-primary::before,
+.detail-secondary::before,
+.product-header-links a::before,
+.back-link::before {
+  content: "";
+  position: absolute;
+  inset: -40% auto -40% -70%;
+  width: 46%;
+  transform: skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.36), transparent);
+  opacity: 0;
+  transition: transform 0.64s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease;
+}
+
+.detail-primary:hover::before,
+.detail-secondary:hover::before,
+.product-header-links a:hover::before,
+.back-link:hover::before {
+  opacity: 1;
+  transform: translateX(360%) skewX(-18deg);
+}
+
+@keyframes productHeaderDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes productFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0) rotate(-0.6deg);
+  }
+}
+
+@keyframes productHalo {
+  0%,
+  100% {
+    opacity: 0.68;
+    transform: scale(0.84);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-header,
+  .product-image-stage::before,
+  .product-image-stage img {
+    animation: none !important;
+  }
+
+  .product-motion-reveal,
+  .product-motion-reveal.motion-visible,
+  .product-depth,
+  .product-depth:hover {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}

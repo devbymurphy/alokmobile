@@ -293,6 +293,105 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initProductMotion() {
+    const revealObserver = !reduceMotion && 'IntersectionObserver' in window
+      ? new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('motion-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.18, rootMargin: '0px 0px -60px 0px' })
+      : null;
+
+    document.querySelectorAll([
+      '.back-link',
+      '.product-gallery',
+      '.product-main-info',
+      '.product-price-panel',
+      '.detail-section',
+      '.product-extra',
+      '.benefit-grid div'
+    ].join(', ')).forEach((element, index) => {
+      element.classList.add('product-motion-reveal');
+      element.style.setProperty('--motion-delay', `${Math.min(index, 8) * 65}ms`);
+      if (revealObserver) {
+        revealObserver.observe(element);
+      } else {
+        element.classList.add('motion-visible');
+      }
+    });
+
+    if (reduceMotion || window.matchMedia('(pointer: coarse)').matches) return;
+
+    document.querySelectorAll([
+      '.product-gallery',
+      '.product-main-info',
+      '.product-price-panel',
+      '.product-extra',
+      '.benefit-grid div',
+      '.detail-primary',
+      '.detail-secondary'
+    ].join(', ')).forEach(element => {
+      element.classList.add('product-depth');
+      element.addEventListener('pointermove', event => {
+        const rect = element.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        element.style.setProperty('--tilt-x', `${(-y * 2.2).toFixed(2)}deg`);
+        element.style.setProperty('--tilt-y', `${(x * 2.6).toFixed(2)}deg`);
+        element.style.setProperty('--glow-x', `${((x + 0.5) * 100).toFixed(1)}%`);
+        element.style.setProperty('--glow-y', `${((y + 0.5) * 100).toFixed(1)}%`);
+      });
+      element.addEventListener('pointerleave', () => {
+        element.style.setProperty('--tilt-x', '0deg');
+        element.style.setProperty('--tilt-y', '0deg');
+        element.style.setProperty('--glow-x', '50%');
+        element.style.setProperty('--glow-y', '50%');
+      });
+    });
+
+    const scrollDepthTargets = document.querySelectorAll([
+      '.product-gallery',
+      '.product-main-info',
+      '.product-price-panel',
+      '.detail-section',
+      '.product-extra',
+      '.benefit-grid div'
+    ].join(', '));
+
+    scrollDepthTargets.forEach(element => element.classList.add('scroll-depth-3d'));
+
+    let ticking = false;
+    const update = () => {
+      const viewportCenter = window.innerHeight / 2;
+      scrollDepthTargets.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        const itemCenter = rect.top + rect.height / 2;
+        const progress = Math.max(-1, Math.min(1, (itemCenter - viewportCenter) / viewportCenter));
+        element.style.setProperty('--scroll-tilt-x', `${(-progress * 5.5).toFixed(2)}deg`);
+        element.style.setProperty('--scroll-depth-y', `${(-progress * 16).toFixed(1)}px`);
+        element.style.setProperty('--scroll-depth-z', `${((1 - Math.abs(progress)) * 30).toFixed(1)}px`);
+        element.style.setProperty('--scroll-depth-glow', (1 - Math.abs(progress)).toFixed(3));
+      });
+      ticking = false;
+    };
+
+    const requestUpdate = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    update();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+  }
+
   const params = new URLSearchParams(window.location.search);
   const id = Number(params.get('id'));
   const product = productCatalog.find(item => item.id === id);
@@ -340,4 +439,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
   }
+
+  initProductMotion();
 });

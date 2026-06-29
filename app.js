@@ -9,17 +9,62 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // Reveal homepage blocks as they enter the viewport.
-  const revealTargets = document.querySelectorAll([
-    '.features-bar-container',
-    '.bar-feature-item',
-    '.card-section',
-    '.product-card',
-    '.feedback-card',
-    '.footer-col'
-  ].join(', '));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if ('IntersectionObserver' in window) {
+  function initScrollProgress() {
+    const progress = document.createElement('div');
+    progress.className = 'scroll-progress';
+    progress.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(progress);
+
+    let ticking = false;
+    const update = () => {
+      const doc = document.documentElement;
+      const maxScroll = Math.max(doc.scrollHeight - window.innerHeight, 1);
+      const amount = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
+      document.body.style.setProperty('--scroll-progress', amount.toFixed(4));
+      progress.style.transform = `scaleX(${amount})`;
+      ticking = false;
+    };
+
+    const requestUpdate = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    update();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+  }
+
+  function initCustomReveal() {
+    const revealTargets = document.querySelectorAll([
+      '.hero-feature-item',
+      '.hero-buttons .btn',
+      '.why-shop-widget',
+      '.features-bar-container',
+      '.bar-feature-item',
+      '.card-section',
+      '.story-content',
+      '.story-image-box',
+      '.visit-content',
+      '.visit-image-box',
+      '.product-card',
+      '.feedback-card',
+      '.review-item',
+      '.insta-grid-item',
+      '.footer-col'
+    ].join(', '));
+
+    const motionTypes = ['motion-rise', 'motion-slice', 'motion-drift-left', 'motion-drift-right', 'motion-zoom'];
+
+    if (!('IntersectionObserver' in window) || reduceMotion) {
+      revealTargets.forEach(target => target.classList.add('scroll-reveal', 'reveal-visible'));
+      return;
+    }
+
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -28,18 +73,101 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, {
-      threshold: 0.16,
-      rootMargin: '0px 0px -60px 0px'
+      threshold: 0.18,
+      rootMargin: '0px 0px -70px 0px'
     });
 
     revealTargets.forEach((target, index) => {
-      target.classList.add('scroll-reveal');
-      target.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 80}ms`);
+      const type = target.classList.contains('story-image-box') || target.classList.contains('visit-image-box')
+        ? 'motion-slice'
+        : motionTypes[index % motionTypes.length];
+      target.classList.add('scroll-reveal', type);
+      target.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 70}ms`);
       revealObserver.observe(target);
     });
-  } else {
-    revealTargets.forEach(target => target.classList.add('reveal-visible'));
   }
+
+  function initPointerDepth() {
+    if (reduceMotion || window.matchMedia('(pointer: coarse)').matches) return;
+
+    document.querySelectorAll([
+      '.product-card',
+      '.feedback-card',
+      '.card-section',
+      '.features-bar-container',
+      '.why-shop-widget',
+      '.action-btn',
+      '.btn'
+    ].join(', ')).forEach(card => {
+      card.classList.add('motion-depth');
+      card.addEventListener('pointermove', event => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.setProperty('--tilt-x', `${(-y * 2.4).toFixed(2)}deg`);
+        card.style.setProperty('--tilt-y', `${(x * 2.8).toFixed(2)}deg`);
+        card.style.setProperty('--glow-x', `${((x + 0.5) * 100).toFixed(1)}%`);
+        card.style.setProperty('--glow-y', `${((y + 0.5) * 100).toFixed(1)}%`);
+      });
+
+      card.addEventListener('pointerleave', () => {
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+        card.style.setProperty('--glow-x', '50%');
+        card.style.setProperty('--glow-y', '50%');
+      });
+    });
+  }
+
+  function initScrollDepth() {
+    if (reduceMotion) return;
+
+    const depthTargets = document.querySelectorAll([
+      '.hero-content',
+      '.why-shop-widget',
+      '.features-bar-container',
+      '.card-section',
+      '.product-card',
+      '.feedback-card',
+      '.footer-col'
+    ].join(', '));
+
+    depthTargets.forEach((target, index) => {
+      target.classList.add('scroll-depth-3d');
+      target.style.setProperty('--depth-index', index % 5);
+    });
+
+    let ticking = false;
+    const update = () => {
+      const viewportCenter = window.innerHeight / 2;
+      depthTargets.forEach(target => {
+        const rect = target.getBoundingClientRect();
+        const itemCenter = rect.top + rect.height / 2;
+        const progress = Math.max(-1, Math.min(1, (itemCenter - viewportCenter) / viewportCenter));
+        target.style.setProperty('--scroll-tilt-x', `${(-progress * 6).toFixed(2)}deg`);
+        target.style.setProperty('--scroll-depth-y', `${(-progress * 18).toFixed(1)}px`);
+        target.style.setProperty('--scroll-depth-z', `${((1 - Math.abs(progress)) * 34).toFixed(1)}px`);
+        target.style.setProperty('--scroll-depth-glow', (1 - Math.abs(progress)).toFixed(3));
+      });
+      ticking = false;
+    };
+
+    const requestUpdate = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    update();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+  }
+
+  initScrollProgress();
+  initCustomReveal();
+  initPointerDepth();
+  initScrollDepth();
 
   // --- Core State Variables ---
   let wishlistCount = 0;

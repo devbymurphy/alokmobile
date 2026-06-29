@@ -225,6 +225,95 @@ document.addEventListener('DOMContentLoaded', () => {
   const inStockOnly = document.getElementById('inStockOnly');
   const offersOnly = document.getElementById('offersOnly');
   const toastContainer = document.getElementById('toastContainer');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const revealObserver = !reduceMotion && 'IntersectionObserver' in window
+    ? new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('motion-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18, rootMargin: '0px 0px -60px 0px' })
+    : null;
+
+  function revealElement(element, index = 0) {
+    element.classList.add('stock-motion-reveal');
+    element.style.setProperty('--motion-delay', `${Math.min(index, 7) * 65}ms`);
+    if (!revealObserver) {
+      element.classList.add('motion-visible');
+      return;
+    }
+    revealObserver.observe(element);
+  }
+
+  function bindDepthMotion(element) {
+    if (reduceMotion || window.matchMedia('(pointer: coarse)').matches) return;
+    element.classList.add('stock-depth');
+    element.addEventListener('pointermove', event => {
+      const rect = element.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      element.style.setProperty('--tilt-x', `${(-y * 2.2).toFixed(2)}deg`);
+      element.style.setProperty('--tilt-y', `${(x * 2.6).toFixed(2)}deg`);
+      element.style.setProperty('--glow-x', `${((x + 0.5) * 100).toFixed(1)}%`);
+      element.style.setProperty('--glow-y', `${((y + 0.5) * 100).toFixed(1)}%`);
+    });
+    element.addEventListener('pointerleave', () => {
+      element.style.setProperty('--tilt-x', '0deg');
+      element.style.setProperty('--tilt-y', '0deg');
+      element.style.setProperty('--glow-x', '50%');
+      element.style.setProperty('--glow-y', '50%');
+    });
+  }
+
+  const scrollDepthTargets = new Set();
+  let scrollDepthTicking = false;
+
+  function bindScrollDepth(element) {
+    if (reduceMotion) return;
+    element.classList.add('scroll-depth-3d');
+    scrollDepthTargets.add(element);
+    requestScrollDepthUpdate();
+  }
+
+  function updateScrollDepth() {
+    const viewportCenter = window.innerHeight / 2;
+    scrollDepthTargets.forEach(element => {
+      const rect = element.getBoundingClientRect();
+      const itemCenter = rect.top + rect.height / 2;
+      const progress = Math.max(-1, Math.min(1, (itemCenter - viewportCenter) / viewportCenter));
+      element.style.setProperty('--scroll-tilt-x', `${(-progress * 5.5).toFixed(2)}deg`);
+      element.style.setProperty('--scroll-depth-y', `${(-progress * 16).toFixed(1)}px`);
+      element.style.setProperty('--scroll-depth-z', `${((1 - Math.abs(progress)) * 30).toFixed(1)}px`);
+      element.style.setProperty('--scroll-depth-glow', (1 - Math.abs(progress)).toFixed(3));
+    });
+    scrollDepthTicking = false;
+  }
+
+  function requestScrollDepthUpdate() {
+    if (!scrollDepthTicking) {
+      window.requestAnimationFrame(updateScrollDepth);
+      scrollDepthTicking = true;
+    }
+  }
+
+  if (!reduceMotion) {
+    window.addEventListener('scroll', requestScrollDepthUpdate, { passive: true });
+    window.addEventListener('resize', requestScrollDepthUpdate);
+  }
+
+  [
+    document.querySelector('.stock-hero'),
+    document.querySelector('.stock-tabs'),
+    document.querySelector('.stock-filters'),
+    document.querySelector('.results-toolbar')
+  ].filter(Boolean).forEach((element, index) => {
+    revealElement(element, index);
+    bindDepthMotion(element);
+    bindScrollDepth(element);
+  });
 
   document.querySelectorAll('.stock-tabs a').forEach(tab => {
     tab.classList.toggle('active', tab.dataset.category === activeCategory);
@@ -309,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ? `Showing ${items.length} matching product${items.length === 1 ? '' : 's'} from Alok Mobile`
       : 'No products match the selected filters';
 
-    items.forEach(item => {
+    items.forEach((item, index) => {
       const discount = Math.round(((item.mrp - item.price) / item.mrp) * 100);
       const card = document.createElement('article');
       card.className = `stock-card ${item.availability === 'Out of stock' ? 'out' : ''}`;
@@ -345,6 +434,9 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
       productsEl.appendChild(card);
+      revealElement(card, index);
+      bindDepthMotion(card);
+      bindScrollDepth(card);
     });
 
     if (typeof lucide !== 'undefined') {
@@ -382,6 +474,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.closest('a')) return;
     const card = event.target.closest('.stock-card');
     if (!card?.dataset.href) return;
+    if (window.startPageTransition) {
+      window.startPageTransition(new URL(card.dataset.href, window.location.href).href);
+      return;
+    }
     window.location.href = card.dataset.href;
   });
 
